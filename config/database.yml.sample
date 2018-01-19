@@ -1,0 +1,18 @@
+---
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: postgres
+  pool: 5
+  username: postgres
+  password:
+  host: localhost # running app and tests from the host
+  # host: db # running all in services
+
+test:
+  <<: *default
+  database: app_test
+
+production:
+  <<: *default
+  database: app_production

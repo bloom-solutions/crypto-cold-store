@@ -1,0 +1,48 @@
+version: '3.2'
+services:
+  test:
+    build:
+      context: .
+      dockerfile: ops/test/Dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+      - type: volume
+        source: bundle
+        target: /bundle
+        volume:
+           nocopy: true
+    depends_on:
+      - redis
+      - db
+      - electrum
+  db:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  redis:
+    image: redis:3.0.5
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/var/lib/redis/data
+  bundle:
+    image: busybox
+    volumes:
+      - /bundle
+  electrum:
+    image: ramontayag/electrum-client-daemon:all_features
+    ports:
+      - "7000:7000"
+    environment:
+      ELECTRUM_USER: electrum
+      ELECTRUM_PASSWORD: electrumpass
+      ELECTRUM_MASTER_PUBLIC_KEY: xpub661MyMwAqRbcFKmqdkoPez3AC1tBRpoVA6zU4GDsLZNN1eiM5FPnw69aZ6NbpahyLMsKeyjf2eqS64xSqYfsj9YWFWUpKtzbXmkLiAsRyCF
+volumes:
+  redis:
+  postgres:
+  bundle:
+  src:
