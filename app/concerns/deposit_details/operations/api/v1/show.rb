@@ -4,22 +4,12 @@ module DepositDetails
       module V1
         class Show < ApplicationOperation
 
-          extend Representer::DSL
-
           # TODO test each min is an enum in Address#coin
           MIN = {
             btc: 0.001,
           }.with_indifferent_access
 
-          representer :render do
-            include Representable::JSON
-            property :address
-            property :min
-          end
-
           step :init_model!
-          # step Contract::Build()
-          # step Contract::Validate()
           step :set_min!
           step :find_or_create_address!
 

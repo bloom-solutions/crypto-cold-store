@@ -6,7 +6,7 @@ module Api
 
       def show
         result = run DepositDetails::Operations::Api::V1::Show
-        render json: result["representer.render.class"].new(result["model"]).to_json
+        render json: DepositDetailRepresenter.new(result["model"]).to_json
       end
 
     end
