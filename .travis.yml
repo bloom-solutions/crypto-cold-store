@@ -1,0 +1,10 @@
+sudo: required
+language: ruby
+cache: bundler
+addons:
+  postgresql: '9.6'
+rvm:
+- 2.5.0
+before_script:
+- cp config/database.yml{.sample,}
+- bundle exec rake db:create db:test:prepare

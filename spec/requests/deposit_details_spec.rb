@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "/api/v1/deposit_details" do
 
   context "bitcoin" do
-    it "returns the deposit details for the unique customer code" do
+    it "returns the deposit details for the unique customer code", vcr: {record: :once} do
       get api_v1_deposit_detail_path, params: { coin: "btc", code: "abc" }
 
       expect(response).to be_success

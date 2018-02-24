@@ -17,7 +17,7 @@ module Addresses
           expect(action).to receive(:execute).with(ctx).and_return(ctx)
         end
 
-        described_class.(ctx)
+        described_class.("123")
       end
 
     end
