@@ -30,8 +30,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem "dry-initializer", "~> 2.3"
+gem "dry-types" # required by reform coercion
+gem "dry-validation"
+gem "trailblazer-rails", "~> 2.0"
+gem "pg", "0.21.0"
+gem "electrum_rpc_json_client", "0.1.0"
+gem "light-service", "0.9.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,6 +45,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'rspec-rails', '~> 3.7'
   gem 'selenium-webdriver'
+  gem "pry-byebug"
+  gem "dotenv-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -48,6 +56,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
