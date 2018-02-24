@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:7000/
+    body:
+      encoding: UTF-8
+      string: '{"jsonrpc":"2.0","method":"createnewaddress","id":1}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic ZWxlY3RydW06ZWxlY3RydW1wYXNz
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - BaseHTTP/0.6 Python/3.6.4
+      Date:
+      - Sat, 24 Feb 2018 06:44:47 GMT
+      Content-Type:
+      - application/json-rpc
+      Content-Length:
+      - '75'
+    body:
+      encoding: UTF-8
+      string: '{"result": "1HovDC9b8SpGhMVz7Fz1keCZhaNcFeE8To", "id": 1, "jsonrpc":
+        "2.0"}'
+    http_version: 
+  recorded_at: Sat, 24 Feb 2018 06:44:45 GMT
+recorded_with: VCR 4.0.0
