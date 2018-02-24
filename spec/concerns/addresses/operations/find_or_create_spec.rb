@@ -2,7 +2,7 @@ require 'rails_helper'
 
 module Addresses
   module Operations
-    RSpec.describe FindOrCreate, vcr: {record: :all} do
+    RSpec.describe FindOrCreate, vcr: {record: :once} do
 
       it "returns finds or create an address for the code-coin combination" do
         result = described_class.(params: {coin: "btc", code: "abc"})
