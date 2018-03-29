@@ -9,6 +9,7 @@ module Addresses
           InitElectrumClient,
           Creation::FindUnusedAddress,
           Creation::SaveAddress,
+          EnqueueImportAddressJob,
         ]
 
         ctx = LightService::Context.new(code: "123")

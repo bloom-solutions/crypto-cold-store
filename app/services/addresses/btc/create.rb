@@ -9,6 +9,7 @@ module Addresses
           InitElectrumClient,
           Creation::FindUnusedAddress,
           Creation::SaveAddress,
+          EnqueueImportAddressJob,
         )
       end
 

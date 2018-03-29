@@ -1,0 +1,32 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"importaddress","params":["muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt","",false],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '44'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 29 Mar 2018 08:40:29 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":null,"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Thu, 29 Mar 2018 08:40:29 GMT
+recorded_with: VCR 4.0.0

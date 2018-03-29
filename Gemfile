@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem "sidekiq", "~> 5.1"
+gem "sidekiq-cron", "0.6.3"
 
 gem "dry-initializer", "~> 2.3"
 gem "dry-types" # required by reform coercion
@@ -36,7 +38,9 @@ gem "dry-validation"
 gem "trailblazer-rails", "~> 2.0"
 gem "pg", "0.21.0"
 gem "electrum_rpc_json_client", "0.1.0"
+gem "bitcoiner", github: "ramontayag/bitcoiner", branch: "all_features"
 gem "light-service", "0.9.0"
+gem "addressable", "~> 2.5"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -63,6 +67,8 @@ end
 group :test do
   gem "vcr"
   gem "webmock"
+  gem "timecop"
+  gem "rspec-sidekiq"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
