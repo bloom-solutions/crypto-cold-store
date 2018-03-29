@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:7000/
+    uri: "[ELECTRUM_HOST]/"
     body:
       encoding: UTF-8
       string: '{"jsonrpc":"2.0","method":"createnewaddress","id":1}'
@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic ZWxlY3RydW06ZWxlY3RydW1wYXNz
+      - Basic ZWxlY3RydW06Y2hhbmdlbWU=
   response:
     status:
       code: 200
@@ -23,15 +23,15 @@ http_interactions:
       Server:
       - BaseHTTP/0.6 Python/3.6.4
       Date:
-      - Sat, 24 Feb 2018 06:44:46 GMT
+      - Thu, 29 Mar 2018 08:04:48 GMT
       Content-Type:
       - application/json-rpc
       Content-Length:
       - '75'
     body:
       encoding: UTF-8
-      string: '{"result": "1H3c2TvVqf69mPxTiZCtqf5u4KPsWp4ETN", "id": 1, "jsonrpc":
+      string: '{"result": "137GQAHmh5gubRXWv9vjfsYTe6ieVYh5Jc", "id": 1, "jsonrpc":
         "2.0"}'
     http_version: 
-  recorded_at: Sat, 24 Feb 2018 06:44:45 GMT
+  recorded_at: Thu, 29 Mar 2018 08:04:40 GMT
 recorded_with: VCR 4.0.0
