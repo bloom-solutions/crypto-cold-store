@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ramontayag/bitcoiner.git
-  revision: ea6de52a136220a63448e001c2db6c45e713db5f
+  revision: da205b7de748005708aa5ef43da7ea1cb5bfdd13
   branch: all_features
   specs:
     bitcoiner (0.1.1)
@@ -170,7 +170,7 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     puma (3.11.0)
     rack (2.0.4)
     rack-protection (2.0.1)
