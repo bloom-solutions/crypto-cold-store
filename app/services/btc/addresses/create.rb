@@ -1,5 +1,5 @@
-module Addresses
-  module Btc
+module Btc
+  module Addresses
     class Create
 
       extend LightService::Organizer

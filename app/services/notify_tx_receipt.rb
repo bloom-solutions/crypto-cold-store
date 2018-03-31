@@ -1,0 +1,3 @@
+class NotifyTxReceipt
+  
+end

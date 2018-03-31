@@ -24,3 +24,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Testing
+
+Writing and re-running functional tests are more difficult, especially when having to deal with blockchains that are slow to load. When re-recording VCR cassettes, the test suite assumes that the blockchain nodes are accessible from this instance. Furthermore:
+
+- Bitcoin: that the testnet address `muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt` has been imported *and* the database has been reindexed (so that `listtransactions` shows its transactions)

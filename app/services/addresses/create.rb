@@ -8,7 +8,7 @@ module Addresses
     private
 
     def self.klass_for(coin)
-      ::Addresses.const_get(coin.classify).const_get("Create")
+      "#{coin.classify.constantize}::Addresses::Create".constantize
     rescue NameError => e
       fail ArgumentError, "unknown handler for #{coin}"
     end

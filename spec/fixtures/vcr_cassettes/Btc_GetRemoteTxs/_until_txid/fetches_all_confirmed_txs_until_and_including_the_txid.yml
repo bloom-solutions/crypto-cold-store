@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"listtransactions","params":["*",3,0,true],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1446'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Mar 2018 10:53:40 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":[{"involvesWatchonly":true,"account":"","address":"muzjB2si6iYS5Nrf71YfGVap7jfBxuTPr2","category":"send","amount":-0.00625000,"vout":0,"fee":0.00000000,"confirmations":299502,"blockhash":"000000000000042afb61aebef93287afab943c8c9c4ffc3fae9d5136ca15c2c4","blockindex":29,"blocktime":1476554157,"txid":"95a5f979afb7deb8a490d0b7147d95953ce5635a0f8bd1310335c3a9dadaaa71","walletconflicts":[],"time":1476554157,"timereceived":1522381403,"bip125-replaceable":"no","abandoned":false},{"involvesWatchonly":true,"account":"","address":"muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt","category":"receive","amount":0.01310000,"label":"","vout":1,"confirmations":226474,"blockhash":"00000000c31468d7a600173931468062d1bda8e451fb1bc00a077c40661fbafa","blockindex":1,"blocktime":1483333935,"txid":"876c70944b1f6deaaf657fd101358a836420d4ba841ccd403bebb7be9b7e8e6c","walletconflicts":[],"time":1483333935,"timereceived":1522381715,"bip125-replaceable":"no"},{"involvesWatchonly":true,"account":"","address":"mwCwTceJvYV27KXBc3NJZys6CjsgsoeHmf","category":"send","amount":-0.01010000,"vout":0,"fee":-0.00300000,"confirmations":226474,"blockhash":"00000000c31468d7a600173931468062d1bda8e451fb1bc00a077c40661fbafa","blockindex":2,"blocktime":1483333935,"txid":"216b4efa94da5c8ea6151acdd9ac6ad2e64e0b0740fbc8e3480c54998c02fe40","walletconflicts":[],"time":1483333935,"timereceived":1522381715,"bip125-replaceable":"no","abandoned":false}],"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Sat, 31 Mar 2018 10:53:40 GMT
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"listtransactions","params":["*",3,3,true],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1471'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Mar 2018 10:53:40 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":[{"involvesWatchonly":true,"account":"","address":"n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi","category":"send","amount":-0.09930000,"vout":0,"fee":-0.00070000,"confirmations":657237,"blockhash":"0000000000013ae36db4b70d9acaff39031bb74bf4d9b4ff0d8c12a81881399f","blockindex":294,"blocktime":1452569788,"txid":"a558dfc13034b4ead5c8f4a40ebd264ddeabdb81949beb33e4b2af7391045f3e","walletconflicts":[],"time":1452569788,"timereceived":1522380769,"bip125-replaceable":"no","abandoned":false},{"involvesWatchonly":true,"account":"","address":"muzjB2si6iYS5Nrf71YfGVap7jfBxuTPr2","category":"send","amount":-1.38149219,"vout":0,"fee":0.58000000,"confirmations":299502,"blockhash":"000000000000042afb61aebef93287afab943c8c9c4ffc3fae9d5136ca15c2c4","blockindex":12,"blocktime":1476554157,"txid":"c1660b62d04cd2e8f3ef02b18901fd555c87a61b5efa5767846cac4c023db200","walletconflicts":[],"time":1476554157,"timereceived":1522381403,"bip125-replaceable":"no","abandoned":false},{"involvesWatchonly":true,"account":"","address":"muzjB2si6iYS5Nrf71YfGVap7jfBxuTPr2","category":"send","amount":-0.09888202,"vout":0,"fee":0.00000000,"confirmations":299502,"blockhash":"000000000000042afb61aebef93287afab943c8c9c4ffc3fae9d5136ca15c2c4","blockindex":16,"blocktime":1476554157,"txid":"0a81aea507e33e3aeeb879475a1e0472434531ca6d4535caf539e7c6f8c09e62","walletconflicts":[],"time":1476554157,"timereceived":1522381403,"bip125-replaceable":"no","abandoned":false}],"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Sat, 31 Mar 2018 10:53:41 GMT
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"listtransactions","params":["*",3,6,true],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1427'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Mar 2018 10:53:41 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":[{"involvesWatchonly":true,"account":"","address":"muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt","category":"receive","amount":0.00073870,"label":"","vout":0,"confirmations":657237,"blockhash":"0000000000013ae36db4b70d9acaff39031bb74bf4d9b4ff0d8c12a81881399f","blockindex":14,"blocktime":1452569788,"txid":"63f2912afdb1a93589816a703ead2e50f5a6e1290697415df3d538fb8cefa79c","walletconflicts":[],"time":1452569788,"timereceived":1522380769,"bip125-replaceable":"no"},{"involvesWatchonly":true,"account":"","address":"n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi","category":"send","amount":-0.49930000,"vout":0,"fee":-0.00070000,"confirmations":657237,"blockhash":"0000000000013ae36db4b70d9acaff39031bb74bf4d9b4ff0d8c12a81881399f","blockindex":18,"blocktime":1452569788,"txid":"472d9974ba690640f47267919b26512114fdba59b1ece5c662bea9eea62c5dc2","walletconflicts":[],"time":1452569788,"timereceived":1522380769,"bip125-replaceable":"no","abandoned":false},{"involvesWatchonly":true,"account":"","address":"muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt","category":"receive","amount":0.10000000,"label":"","vout":0,"confirmations":657237,"blockhash":"0000000000013ae36db4b70d9acaff39031bb74bf4d9b4ff0d8c12a81881399f","blockindex":293,"blocktime":1452569788,"txid":"48e519c2f3695b99fe985b5574165de69baea4f9559be6e0c96247551d0b42e3","walletconflicts":[],"time":1452569788,"timereceived":1522380769,"bip125-replaceable":"no"}],"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Sat, 31 Mar 2018 10:53:41 GMT
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"listtransactions","params":["*",3,9,true],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1428'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Mar 2018 10:53:41 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":[{"involvesWatchonly":true,"account":"","address":"muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt","category":"receive","amount":0.08700000,"label":"","vout":0,"confirmations":657293,"blockhash":"0000000000002253bbfe1cfb0a7dc170b1977be7de2e94f3cc0ae81bc34ee776","blockindex":173,"blocktime":1452537797,"txid":"3e138ff8df4cfca728f37f59429aab03f1e4e9af6ed6e2a49425a70379e8ede9","walletconflicts":[],"time":1452537797,"timereceived":1522380768,"bip125-replaceable":"no"},{"involvesWatchonly":true,"account":"","address":"n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi","category":"send","amount":-0.08630000,"vout":0,"fee":-0.00070000,"confirmations":657293,"blockhash":"0000000000002253bbfe1cfb0a7dc170b1977be7de2e94f3cc0ae81bc34ee776","blockindex":174,"blocktime":1452537797,"txid":"265fcc1b850bc55794aeae43670deb2c6552de00b09838b224f58408812604c5","walletconflicts":[],"time":1452537797,"timereceived":1522380768,"bip125-replaceable":"no","abandoned":false},{"involvesWatchonly":true,"account":"","address":"muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt","category":"receive","amount":0.50000000,"label":"","vout":1,"confirmations":657237,"blockhash":"0000000000013ae36db4b70d9acaff39031bb74bf4d9b4ff0d8c12a81881399f","blockindex":13,"blocktime":1452569788,"txid":"8adead845a70eaadd56e4fcff6e58fda3dae06bad280161f3d5a6e8effdf3416","walletconflicts":[],"time":1452569788,"timereceived":1522380769,"bip125-replaceable":"no"}],"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Sat, 31 Mar 2018 10:53:41 GMT
+recorded_with: VCR 4.0.0

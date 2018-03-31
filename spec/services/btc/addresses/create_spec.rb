@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-module Addresses
-  module Btc
+module Btc
+  module Addresses
     RSpec.describe Create do
 
       it "calls actions in order" do
