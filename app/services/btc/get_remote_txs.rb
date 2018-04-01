@@ -20,7 +20,7 @@ module Btc
 
       until_txid({
         bitcoiner_client: bitcoiner_client,
-        txid: tx.tx_id,
+        txid: tx&.tx_id,
         count: count,
         skip: skip,
       })
@@ -29,13 +29,17 @@ module Btc
     def self.until_txid(bitcoiner_client:, txid:, count: DEFAULT_PER_PAGE, skip: 0)
       txs = []
 
-      bitcoiner_client.request(
+      new_txs = bitcoiner_client.request(
         "listtransactions",
         ACCOUNT,
         count,
         skip,
         INCLUDE_WATCHONLY,
-      ).reverse.each do |tx|
+      )
+
+      return [] if new_txs.empty?
+
+      new_txs.reverse.each do |tx|
         txs.unshift(tx)
         return txs if txid == tx["txid"]
       end

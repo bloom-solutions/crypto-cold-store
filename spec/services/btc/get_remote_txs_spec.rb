@@ -60,7 +60,21 @@ module Btc
       end
 
       context "there are no known txs" do
-        it "fetches all txs"
+        let(:known_address) { "muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt" }
+        let(:known_txs) do
+          fixture = File.read(FIXTURES_DIR.join("btc-listtransactions.json"))
+          result = JSON.parse(fixture)["result"]
+          result.select do |tx|
+            tx["address"] == known_address
+          end
+        end
+
+        it "fetches all txs" do
+          txs = described_class.
+            of_interest(bitcoiner_client: bitcoiner_client).
+            select { |tx| tx["address"] == known_address }
+          expect(txs.count).to be >= known_txs.count
+        end
       end
     end
 
