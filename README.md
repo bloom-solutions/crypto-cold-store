@@ -2,28 +2,22 @@
 
 [![Build Status](https://travis-ci.org/ramontayag/crypto_cold_store-rails.svg?branch=master)](https://travis-ci.org/ramontayag/crypto_cold_store-rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Crypto Cold Store is an open-source solution for cryptocurrency cold storage. It's job is simple:
 
-Things you may want to cover:
+- generate new addresses for every unique `code` passed to it
+- publish in `/deposits` channel of new deposits or updates to them (up to a certain amount of confirmations depending on the coin)
 
-* Ruby version
+## Coins Supported
 
-* System dependencies
+- Bitcoin
 
-* Configuration
+## Generating Addresses
 
-* Database creation
+See `spec/requests/deposit_details_spec.rb`.
 
-* Database initialization
+## Subscribing to notifications
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[MessageBus](https://github.com/SamSaffron/message_bus) is used to publish notifications. See that repository for instructions on how to connect.
 
 ## Testing
 
