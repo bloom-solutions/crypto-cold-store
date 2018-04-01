@@ -14,7 +14,7 @@ module Btc
         iterate(:remote_txs, [
           FindAddress,
           SaveTxInfo,
-          # NotifyTxReceipt,
+          NotifyTxReceipt,
         ]),
       ]
     end

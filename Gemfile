@@ -41,6 +41,7 @@ gem "electrum_rpc_json_client", "0.1.0"
 gem "bitcoiner", github: "ramontayag/bitcoiner", branch: "all_features"
 gem "light-service", "0.10.2"
 gem "addressable", "~> 2.5"
+gem "message_bus", "~> 2.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

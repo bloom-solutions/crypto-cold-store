@@ -27,10 +27,13 @@ module Btc
       })
     end
 
-    it "fetches unknown txs or below #{GetRemoteTxs::MAX_CONFS} confs" do
+    it "fetches unknown txs or below #{GetRemoteTxs::MAX_CONFS} confs and broadcasts them" do
       described_class.()
 
       expect(Tx.pluck(:tx_id).to_set).to be_subset(expected_txids)
+      messages = MessageBus.backlog NotifyTxReceipt::CHANNEL, 0
+      expect(JSON.parse(messages.last.data)["address"]).
+        to eq "muhtvdmsnbQEPFuEmxcChX58fGvXaaUoVt"
     end
 
   end
