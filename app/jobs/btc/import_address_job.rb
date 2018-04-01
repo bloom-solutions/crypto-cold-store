@@ -1,7 +1,5 @@
 module Btc
-  class ImportAddressJob
-
-    include Sidekiq::Worker
+  class ImportAddressJob < ApplicationJob
 
     def perform(public_address)
       ImportAddress.(public_address)

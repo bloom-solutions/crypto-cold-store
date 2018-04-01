@@ -1,5 +1,5 @@
-module Addresses
-  module Btc
+module Btc
+  module Addresses
     class EnqueueImportAddressJob
 
       extend LightService::Action

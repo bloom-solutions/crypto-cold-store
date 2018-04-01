@@ -1,5 +1,5 @@
-module Addresses
-  module Btc
+module Btc
+  module Addresses
     module Creation
       class ElectrumCreateNewAddress
 

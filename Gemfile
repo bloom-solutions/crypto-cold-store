@@ -39,8 +39,9 @@ gem "trailblazer-rails", "~> 2.0"
 gem "pg", "0.21.0"
 gem "electrum_rpc_json_client", "0.1.0"
 gem "bitcoiner", github: "ramontayag/bitcoiner", branch: "all_features"
-gem "light-service", "0.9.0"
+gem "light-service", "0.10.2"
 gem "addressable", "~> 2.5"
+gem "message_bus", "~> 2.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,6 +70,7 @@ group :test do
   gem "webmock"
   gem "timecop"
   gem "rspec-sidekiq"
+  gem "shoulda-matchers"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

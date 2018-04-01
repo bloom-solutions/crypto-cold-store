@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-module Addresses
-  module Btc
+module Btc
+  module Addresses
     module Creation
       RSpec.describe ElectrumCreateNewAddress, vcr: {record: :once} do
 

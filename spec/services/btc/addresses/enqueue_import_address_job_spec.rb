@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-module Addresses
-  module Btc
+module Btc
+  module Addresses
     RSpec.describe EnqueueImportAddressJob do
 
       it "enqueues #{::Btc::ImportAddressJob}" do

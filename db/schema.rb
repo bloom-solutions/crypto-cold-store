@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218071012) do
+ActiveRecord::Schema.define(version: 20180224131446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,4 +24,17 @@ ActiveRecord::Schema.define(version: 20180218071012) do
     t.index ["coin", "address"], name: "index_addresses_on_coin_and_address", unique: true
   end
 
+  create_table "txs", force: :cascade do |t|
+    t.bigint "address_id"
+    t.decimal "amount"
+    t.integer "confirmations"
+    t.string "tx_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id", "tx_id"], name: "index_txs_on_address_id_and_tx_id", unique: true
+    t.index ["address_id"], name: "index_txs_on_address_id"
+    t.index ["confirmations"], name: "index_txs_on_confirmations"
+  end
+
+  add_foreign_key "txs", "addresses"
 end
