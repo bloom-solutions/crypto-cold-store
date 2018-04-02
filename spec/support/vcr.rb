@@ -6,6 +6,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   [
     "ELECTRUM_HOST",
+    "ETHEREUM_HOST",
     "BITCOIND_HOST",
     "BITCOIND_RPC_USER",
     "BITCOIND_RPC_PASSWORD",

@@ -7,4 +7,8 @@ class Tx < ApplicationRecord
     where(confirmations.lt(n))
   end
 
+  scope :of_coin, ->(coin) do
+    joins(:address).where(addresses: {coin: Address.coins[coin]})
+  end
+
 end

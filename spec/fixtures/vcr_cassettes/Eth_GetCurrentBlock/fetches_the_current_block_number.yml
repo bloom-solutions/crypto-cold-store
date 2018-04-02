@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[ETHEREUM_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - ethereum-testnet.bloomx.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '45'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 02 Apr 2018 07:45:16 GMT
+    body:
+      encoding: UTF-8
+      string: '{"jsonrpc":"2.0","id":1,"result":"0x2d126c"}
+
+'
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 07:45:16 GMT
+recorded_with: VCR 4.0.0

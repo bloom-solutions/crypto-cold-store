@@ -21,4 +21,17 @@ RSpec.describe Tx do
     end
   end
 
+  describe ".of_coin" do
+    let!(:btc_address) { create(:address, coin: "btc") }
+    let!(:btc_tx) { create(:tx, address: btc_address) }
+    let!(:eth_address) { create(:address, coin: "eth") }
+    let!(:eth_tx) { create(:tx, address: eth_address) }
+
+    it "returns the txs of a coin type" do
+      expect(described_class.of_coin(:btc)).to match_array([btc_tx])
+      expect(described_class.of_coin("btc")).to match_array([btc_tx])
+      expect(described_class.of_coin("eth")).to match_array([eth_tx])
+    end
+  end
+
 end
