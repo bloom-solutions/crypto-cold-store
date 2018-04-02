@@ -9,7 +9,7 @@ Crypto Cold Store is an open-source solution for cryptocurrency cold storage. It
 
 ## Coins Supported
 
-- Bitcoin
+- [Bitcoin](docs/bitcoin.md)
 
 ## Generating Addresses
 

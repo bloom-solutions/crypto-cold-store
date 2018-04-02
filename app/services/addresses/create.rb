@@ -2,7 +2,7 @@ module Addresses
   class Create
 
     def self.call(coin, code)
-      klass_for(coin).(code)
+      klass_for(coin).(code: code)
     end
 
     private
