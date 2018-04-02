@@ -7,7 +7,7 @@ module Btc
       it "calls actions in order" do
         actions = [
           InitElectrumClient,
-          Creation::FindUnusedAddress,
+          Creation::Electrum::FindUnusedAddress,
           Creation::SaveAddress,
           EnqueueImportAddressJob,
         ]

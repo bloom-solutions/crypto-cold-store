@@ -7,7 +7,7 @@ module Btc
       def self.call(code)
         with(code: code).reduce(
           InitElectrumClient,
-          Creation::FindUnusedAddress,
+          Creation::Electrum::FindUnusedAddress,
           Creation::SaveAddress,
           EnqueueImportAddressJob,
         )
