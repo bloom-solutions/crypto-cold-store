@@ -14,7 +14,7 @@ module Btc
           end
 
           it "keeps looking until it finds an unused one" do
-            expect(ElectrumCreateNewAddress).to receive(:call).
+            expect(Electrum::CreateNewAddress).to receive(:call).
               with(electrum_client: client).
               and_return(*%w(addr1 addr2 addr3))
 
@@ -25,7 +25,7 @@ module Btc
 
         describe "finding an address not seen before" do
           it "returns the found address" do
-            expect(ElectrumCreateNewAddress).to receive(:call).
+            expect(Electrum::CreateNewAddress).to receive(:call).
               with(electrum_client: client).
               and_return("addr")
 

@@ -17,7 +17,7 @@ module Btc
         private
 
         def self.create_new_address(electrum_client)
-          ElectrumCreateNewAddress.(electrum_client: electrum_client)
+          Electrum::CreateNewAddress.(electrum_client: electrum_client)
         end
 
       end
