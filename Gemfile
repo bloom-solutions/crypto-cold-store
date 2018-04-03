@@ -28,6 +28,7 @@ gem "addressable", "~> 2.5"
 gem "message_bus", "~> 2.1"
 gem "btcruby", "~> 1.7"
 gem "ethereum.rb", "~> 2.2"
+gem "bip44", "0.2.14"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
