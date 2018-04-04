@@ -35,6 +35,7 @@ module Btc
         expect(tx.tx_id).to eq "69893d0d726a748a6948059a011d0380bf59a822ef1927cb8a8f4bd4acc6a886"
         expect(tx.confirmations).to eq 657517
         expect(tx.amount).to eq 0.23400000
+        expect(tx.block_index).to eq 158
       end
     end
 
