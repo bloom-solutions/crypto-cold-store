@@ -1,0 +1,11 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - "build"
+      - "--cache-from=us.gcr.io/$PROJECT_ID/crypto-cold-store:staging-latest"
+      - "--file=ops/prod/Dockerfile"
+      - "--tag=us.gcr.io/$PROJECT_ID/crypto-cold-store:staging-latest"
+      - "--tag=us.gcr.io/$PROJECT_ID/crypto-cold-store:$REVISION_ID"
+      - "."
+images:
+  - 'us.gcr.io/$PROJECT_ID/crypto-cold-store'
