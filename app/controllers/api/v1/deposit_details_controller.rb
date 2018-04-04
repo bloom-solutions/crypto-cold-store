@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 module Api
   module V1
     class DepositDetailsController < BaseController
