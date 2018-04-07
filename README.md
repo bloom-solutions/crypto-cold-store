@@ -1,6 +1,6 @@
 # README
 
-[![Build Status](https://travis-ci.org/ramontayag/crypto_cold_store-rails.svg?branch=master)](https://travis-ci.org/ramontayag/crypto_cold_store-rails)
+[![Build Status](https://travis-ci.org/bloom-solutions/crypto-cold-store.svg?branch=master)](https://travis-ci.org/bloom-solutions/crypto-cold-store)
 
 Crypto Cold Store is an open-source solution for cryptocurrency cold storage. Its job is simple:
 
