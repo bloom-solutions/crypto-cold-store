@@ -7,6 +7,8 @@ module Btc
       expect(described_class < ApplicationJob).to be true
     end
 
+    it { is_expected.to be_retryable(true) }
+
     it "delegates work to #{Btc::ImportAddress}" do
       expect(Btc::ImportAddress).to receive(:call).with("abc")
       described_class.new.perform("abc")
