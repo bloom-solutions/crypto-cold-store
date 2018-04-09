@@ -1,10 +1,6 @@
 class Address < ApplicationRecord
 
-  enum coin: {
-    btc: 0,
-    ltc: 1,
-    eth: 2,
-  }
+  enum coin: Block::COINS
 
   has_many :txs
 

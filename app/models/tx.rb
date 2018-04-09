@@ -1,6 +1,7 @@
 class Tx < ApplicationRecord
 
   belongs_to :address
+  belongs_to :block, foreign_key: :block_hash, primary_key: :block_hash
 
   scope :with_confirmations_less_than, ->(n) do
     confirmations = arel_table[:confirmations]

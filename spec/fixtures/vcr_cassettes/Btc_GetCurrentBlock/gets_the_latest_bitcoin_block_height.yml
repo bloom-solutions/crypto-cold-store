@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"getblockcount","params":[],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '47'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 09 Apr 2018 12:02:17 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":1292037,"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Mon, 09 Apr 2018 12:02:17 GMT
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"getblockhash","params":[1292037],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 09 Apr 2018 12:02:17 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":"0000000024b263838f8799737c098f7c1f20d2cd05b65f97227411483c2b9cae","error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Mon, 09 Apr 2018 12:02:17 GMT
+recorded_with: VCR 4.0.0
