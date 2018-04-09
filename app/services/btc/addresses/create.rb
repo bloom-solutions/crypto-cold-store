@@ -39,7 +39,6 @@ module Btc
 
         actions += [
           Creation::SaveAddress,
-          EnqueueImportAddressJob,
         ]
       end
 

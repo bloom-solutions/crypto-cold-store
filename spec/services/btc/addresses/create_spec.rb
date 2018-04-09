@@ -11,7 +11,6 @@ module Btc
             Creation::Btcruby::GetAddressIndex,
             Creation::Btcruby::GenAddress,
             Creation::SaveAddress,
-            EnqueueImportAddressJob,
           ]
 
           ctx = LightService::Context.new({
@@ -34,7 +33,6 @@ module Btc
             InitElectrumClient,
             Creation::Electrum::FindUnusedAddress,
             Creation::SaveAddress,
-            EnqueueImportAddressJob,
           ]
 
           ctx = LightService::Context.new(

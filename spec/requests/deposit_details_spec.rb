@@ -12,7 +12,6 @@ RSpec.describe "/api/v1/deposit_details" do
       expect(address_1).to be_present
       expect(address_1.size).to be >= 26
       expect(address_1.size).to be <= 35
-      expect(Btc::ImportAddressJob).to have_enqueued_sidekiq_job(address_1)
     end
   end
 
