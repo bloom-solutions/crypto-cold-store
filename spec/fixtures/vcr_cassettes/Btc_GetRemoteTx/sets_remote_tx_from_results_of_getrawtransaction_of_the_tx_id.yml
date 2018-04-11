@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"getrawtransaction","params":["53c38b761f228332fa54a48697441be969eb727d48ab5c1b9f5dcec89bea2216",true],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1859'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 11 Apr 2018 01:13:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":{"txid":"53c38b761f228332fa54a48697441be969eb727d48ab5c1b9f5dcec89bea2216","hash":"b5913894150106a6af96884f0ae106e782aa242b7acd455ba43c4025b9c084f3","version":1,"size":247,"vsize":166,"locktime":0,"vin":[{"txid":"ddea02d535e9987291645bba27d3bc154a01b4a3e27a43a6afc640b45aeffad3","vout":1,"scriptSig":{"asm":"0014eb20738f7a9f7494c75677ed782e705edce52799","hex":"160014eb20738f7a9f7494c75677ed782e705edce52799"},"txinwitness":["30440220154037c4e164338f54b439d40ebd0f2ddee794587a0846549244a9969dff45a4022069e78c4d2f12f17b08ee7c6a51eb5979daea7869d640f439a387a986918fff3d01","03a70e94ba1f3abc1d51dc5c5ce21433c2e0390fc349f1e5e9b9408e545a009dfa"],"sequence":4294967295}],"vout":[{"value":0.32500000,"n":0,"scriptPubKey":{"asm":"OP_HASH160
+        c69534d1a4b473a8db800f24f2e62dac33fddaf1 OP_EQUAL","hex":"a914c69534d1a4b473a8db800f24f2e62dac33fddaf187","reqSigs":1,"type":"scripthash","addresses":["2NBMEXJZFSfts8yRq9fh36kJzgNCqVuuHWF"]}},{"value":25.80374497,"n":1,"scriptPubKey":{"asm":"OP_HASH160
+        bb8b8b69d44f3906a4861088da4f85fc555ec6c3 OP_EQUAL","hex":"a914bb8b8b69d44f3906a4861088da4f85fc555ec6c387","reqSigs":1,"type":"scripthash","addresses":["2NALsWtDeHHnVoMZpvsgkVgNja8pKnNfGFP"]}}],"hex":"01000000000101d3faef5ab440c6afa6437ae2a3b4014a15bcd327ba5b64917298e935d502eadd0100000017160014eb20738f7a9f7494c75677ed782e705edce52799ffffffff0220e9ef010000000017a914c69534d1a4b473a8db800f24f2e62dac33fddaf187e163cd990000000017a914bb8b8b69d44f3906a4861088da4f85fc555ec6c387024730440220154037c4e164338f54b439d40ebd0f2ddee794587a0846549244a9969dff45a4022069e78c4d2f12f17b08ee7c6a51eb5979daea7869d640f439a387a986918fff3d012103a70e94ba1f3abc1d51dc5c5ce21433c2e0390fc349f1e5e9b9408e545a009dfa00000000","blockhash":"000000000000022862a1920941f88e233e140247793b450d608bca968085b8b1","confirmations":3,"time":1523408324,"blocktime":1523408324},"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Wed, 11 Apr 2018 01:13:51 GMT
+recorded_with: VCR 4.0.0

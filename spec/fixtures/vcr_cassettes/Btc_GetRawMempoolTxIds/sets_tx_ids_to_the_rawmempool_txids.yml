@@ -1,0 +1,32 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"getrawmempool","params":[false],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1649'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 11 Apr 2018 01:07:20 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":["b49afd5c83f268d97837d2d32b3e30f5c4149e7a20b30dbd3389500053c2b7dd","eba7eed548cf83ff123e94203583363bfd50c14d6a8c1f126c0878808b03a48d","edf7f9ef57b35e6dda72a031a1c7930a74d022e5e010c26990917ee70576d456","a8189cfec84e8ea50f79b4005f00b30c55c728c6e4922a48a4001280dd484594","ed08359490c3481e0af30d5d8cb22e24b98b9271e7ac398eaa03191a241f3cda","9ed085be59546b9bc2e043690abe131fd6803e5903cae92fde2a03ff859c0cc9","975d8748d0bdefc5f887593360e6dfe980a6b8e179fc67ff61c7b1eebdc6dfc6","e48fe0327693467299a66e9ae183ca7e2c117db57cf59464028267fde2aeafc9","4a6265f4ac88857b4b0c6699fdbe47c88ec37105257cc5279c69aedc80dcd1b8","e45e541557fc88342eac44a26f01d4f3ee8ef33e62ec90e428b42d1c12e66488","ee9b7435682ff1ded40c3fd61bdec46a87956695be5787364f34284724171e2c","7f150ca635151747e28cd917fcbd010af915f5af6a7e4750caaa36e6514b6a3a","5e1140a8625d972d0231703361c563933ed09dd2716f5176c3dd6030f25ec5f2","61cbe77731f807745ec5855d18d56c64f16351d51fa34d61ea5dca3af601d30d","365060cfb3f70fd69c3491b8d3123dd2717483c446f2cccb56dbe5d0e45c011a","04b70fd9ca14172e05143a8360e5a28388feea89fa71ac2129eda6429fefdbf5","165c4d201a271d592c817ec4e9b77d99a7ea89782290b2a726d4bc93ef821dfa","5dfca1b74b747a5dda57ccdd2da3db850c08c8c4d10fdf6c0899deb2c074f0ef","feca6e79857d5d8bd970be79c3ff197bf0da098ab8e59ca32ce19d8d3a586c3a","201eedf4ee4e1ac4e2e9d755749397a5a283c7fcf34e1b0d2b20ec8c769ce18f","a0ed6448e5b14d6ceffcb4c6be9656f095ac9b7ae4c7b5d84f1f4514939e7b5b","bd5088d9f2614146acdd3259012c5e1c9aa2605a2e7f92ec060b130ae27283ea","499278ba184ea9d6cc11b10601179bb28b6a627329ef47f7cd36aa0e3614c6b2","0756c15a4cf22ea2c021489aa136b8bc6146242b2ddf2cb3036ea0f32b486a60"],"error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Wed, 11 Apr 2018 01:07:20 GMT
+recorded_with: VCR 4.0.0
