@@ -2,16 +2,20 @@ module Btc
   class SaveTxInfo
 
     extend LightService::Action
-    expects :block, :remote_tx, :remote_tx_output, :address, :block_index
+    expects :remote_tx, :remote_tx_output, :address
     promises :tx
 
     executed do |c|
       tx = c.address.txs.where(tx_id: c.remote_tx["txid"]).first_or_initialize
+
+      block = c[:block]
+      confirmations = block&.confirmations || 0
+
       tx.update_attributes(
-        block_hash: c.block.block_hash,
-        confirmations: c.block.confirmations,
+        block_hash: block&.block_hash,
+        confirmations: confirmations,
         amount: c.remote_tx_output["value"],
-        block_index: c.block_index,
+        block_index: c[:block_index],
       )
 
       c.tx = tx
