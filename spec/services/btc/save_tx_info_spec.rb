@@ -87,5 +87,30 @@ module Btc
       end
     end
 
+    context "block_index does not exist" do
+      it "sets it to nil" do
+        tx = described_class.execute(
+          address: address,
+          remote_tx: remote_tx,
+          remote_tx_output: remote_tx_output,
+        ).tx
+
+        expect(tx.block_index).to be_nil
+      end
+    end
+
+    context "block does not exist" do
+      it "sets the confirmations to 0" do
+        tx = described_class.execute(
+          address: address,
+          remote_tx: remote_tx,
+          remote_tx_output: remote_tx_output,
+          block_index: 2000,
+        ).tx
+
+        expect(tx.confirmations).to be_zero
+      end
+    end
+
   end
 end
