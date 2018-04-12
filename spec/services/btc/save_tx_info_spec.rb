@@ -3,11 +3,11 @@ require 'rails_helper'
 module Btc
   RSpec.describe SaveTxInfo do
 
-    let(:remote_block) do
-      {
-        "hash" => "1bc",
-        "confirmations" => 1,
-      }
+    let(:block) do
+      create(:block, {
+        block_hash: "1bc",
+        confirmations: 1,
+      })
     end
 
     let(:remote_tx) do
@@ -49,7 +49,7 @@ module Btc
       it "saves the tx" do
         tx_count = Tx.count
         tx = described_class.execute({
-          remote_block: remote_block,
+          block: block,
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,
@@ -64,23 +64,19 @@ module Btc
     end
 
     context "tx exists locally" do
-      let(:remote_block_update) do
-        {
-          "hash" => "1bc",
-          "confirmations" => 2,
-        }
-      end
-
       it "updates the tx" do
         described_class.execute(
-          remote_block: remote_block,
+          block: block,
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,
           block_index: 2000,
         )
+
+        block.update_attributes!(confirmations: 2)
+
         described_class.execute(
-          remote_block: remote_block_update,
+          block: block,
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,

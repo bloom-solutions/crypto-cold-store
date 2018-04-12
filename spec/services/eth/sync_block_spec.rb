@@ -16,8 +16,9 @@ module Eth
         find_by(tx_id: "0x635e994ceeecf74731a5aeb1b43d29f024ab2a6c1b234328b5a1bc996b6a01e6")
 
       expect(tx).to be_present
+      expect(tx.block).to be_present
       expect(tx.amount.round(18).to_f).to eq 0.229788202932067616
-      expect(tx.block_index).to eq 2952850
+      expect(tx.block_index).to eq 189
       expect(tx.address).to eq address
       expect(tx.confirmations).to be > 20 # more than what it is at time of writing
     end

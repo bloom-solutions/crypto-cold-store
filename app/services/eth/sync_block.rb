@@ -12,6 +12,7 @@ module Eth
         InitEthereumClient,
         GetCurrentBlock,
         GetRemoteBlock,
+        SaveBlockInfo,
         GetRemoteTxs,
         iterate(:remote_txs, [
           FindAddress,

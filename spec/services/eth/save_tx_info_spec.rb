@@ -9,7 +9,7 @@ module Eth
         "hash"=>"0xf2c46bdc27b960fcdc8073d6765b97b6aa1484e939e420ef07d21a91efb7614b",
         # not everything
         "to"=>"0xa90c34c824687f74ed24406e7621706130f8ef15",
-        "transactionIndex"=>"0x0",
+        "transactionIndex"=>"0xb",
         "value"=> 1_100_000_000_000_000_000.to_s(16),
       }
     end
@@ -18,6 +18,9 @@ module Eth
         coin: "eth",
         address: "0xa90c34c824687f74ed24406e7621706130f8ef15",
       })
+    end
+    let(:block) do
+      create(:block, coin: "eth", height: 2952850, confirmations: 2)
     end
 
     context "tx exists" do
@@ -34,9 +37,9 @@ module Eth
         resulting_ctx = described_class.execute({
           address: address,
           remote_tx: remote_tx,
-          current_block_number: 2952855,
+          block: block,
         })
-        expect(resulting_ctx.tx.confirmations).to eq 5
+        expect(resulting_ctx.tx.confirmations).to eq 2
       end
     end
 
@@ -45,14 +48,15 @@ module Eth
         resulting_ctx = described_class.execute({
           address: address,
           remote_tx: remote_tx,
-          current_block_number: 2952850,
+          block: block,
         })
         tx = resulting_ctx.tx
-        expect(tx.confirmations).to eq 0
+        expect(tx.confirmations).to eq 2
         expect(tx.amount).to eq 1.1
         expect(tx.address).to eq address
         expect(tx.tx_id).to eq remote_tx["hash"]
-        expect(tx.block_index).to eq 2952850
+        expect(tx.block_index).to eq 11
+        expect(tx.block).to eq block
       end
     end
 

@@ -9,7 +9,7 @@ module Btc
       remote_block = c.remote_block
       block = Block.btc.where(block_hash: remote_block["hash"]).
         first_or_initialize
-      block.update_attributes(
+      block.update_attributes!(
         height: remote_block["height"],
         confirmations: remote_block["confirmations"],
       )
