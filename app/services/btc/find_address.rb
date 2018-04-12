@@ -2,12 +2,19 @@ module Btc
   class FindAddress
 
     extend LightService::Action
-    expects :remote_tx
+    expects :remote_tx, :remote_tx_output
     promises :address
 
     executed do |c|
-      c.address = Address.btc.find_by(address: c.remote_tx["address"])
-      c.skip_remaining! if c.address.nil?
+      script_pub_key = c.remote_tx_output["scriptPubKey"]
+      if script_pub_key["type"] == "pubkeyhash"
+        public_address = script_pub_key["addresses"].first
+        c.address = Address.btc.find_by(address: public_address)
+        c.skip_remaining! if c.address.nil?
+      else
+        c.address = nil
+        c.skip_remaining!
+      end
     end
 
   end

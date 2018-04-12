@@ -1,4 +1,4 @@
-module Eth
+module Btc
   class SyncBlock
 
     extend LightService::Organizer
@@ -9,15 +9,18 @@ module Eth
 
     def self.actions
       [
-        InitEthereumClient,
-        GetCurrentBlock,
+        InitBitcoinerClient,
+        GetBlockHash,
         GetRemoteBlock,
         SaveBlockInfo,
         GetRemoteTxs,
         iterate(:remote_txs, [
-          FindAddress,
-          SaveTxInfo,
-          NotifyTxReceipt,
+          GetRemoteTxOutputs,
+          iterate(:remote_tx_outputs, [
+            FindAddress,
+            SaveTxInfo,
+            NotifyTxReceipt,
+          ])
         ])
       ]
     end

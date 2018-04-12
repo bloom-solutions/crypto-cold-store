@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402100544) do
+ActiveRecord::Schema.define(version: 20180411013239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20180402100544) do
     t.index ["coin", "address"], name: "index_addresses_on_coin_and_address", unique: true
   end
 
+  create_table "blocks", force: :cascade do |t|
+    t.integer "coin", null: false
+    t.integer "height", null: false
+    t.string "block_hash", null: false
+    t.integer "confirmations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin", "block_hash"], name: "index_blocks_on_coin_and_block_hash", unique: true
+    t.index ["coin", "confirmations"], name: "index_blocks_on_coin_and_confirmations"
+    t.index ["coin", "height"], name: "index_blocks_on_coin_and_height"
+  end
+
   create_table "txs", force: :cascade do |t|
     t.bigint "address_id"
     t.decimal "amount"
@@ -32,8 +44,10 @@ ActiveRecord::Schema.define(version: 20180402100544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "block_index"
+    t.string "block_hash"
     t.index ["address_id", "tx_id"], name: "index_txs_on_address_id_and_tx_id", unique: true
     t.index ["address_id"], name: "index_txs_on_address_id"
+    t.index ["block_hash"], name: "index_txs_on_block_hash"
     t.index ["block_index"], name: "index_txs_on_block_index"
     t.index ["confirmations"], name: "index_txs_on_confirmations"
   end

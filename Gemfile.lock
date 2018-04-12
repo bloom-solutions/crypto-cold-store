@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/ramontayag/bitcoiner.git
-  revision: da205b7de748005708aa5ef43da7ea1cb5bfdd13
+  remote: https://github.com/bloom-solutions/bitcoiner.git
+  revision: 8f0e6ffdd55f414583fae6e758ecedc77c2ca957
   branch: all_features
   specs:
     bitcoiner (0.1.1)

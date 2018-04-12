@@ -10,12 +10,11 @@ module Btc
     def self.actions
       [
         InitBitcoinerClient,
-        GetRemoteTxs,
-        iterate(:remote_txs, [
-          FindAddress,
-          SaveTxInfo,
-          NotifyTxReceipt,
-        ]),
+        GetCurrentBlock,
+        GetBlocksToSync,
+        iterate(:unsynced_blocks, [
+          EnqueueSyncBlockJob,
+        ])
       ]
     end
 

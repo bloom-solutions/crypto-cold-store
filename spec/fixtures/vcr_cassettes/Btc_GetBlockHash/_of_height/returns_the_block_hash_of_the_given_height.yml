@@ -1,0 +1,32 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "[BITCOIND_HOST]/"
+    body:
+      encoding: UTF-8
+      string: '{"method":"getblockhash","params":[1292018],"id":"jsonrpc"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 09 Apr 2018 12:02:16 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":"00000000ff6025486c994a7a7ea1e815e43cea56ebd8b7f801f84c5cb8cecb88","error":null,"id":"jsonrpc"}
+
+'
+    http_version: 
+  recorded_at: Mon, 09 Apr 2018 12:02:17 GMT
+recorded_with: VCR 4.0.0

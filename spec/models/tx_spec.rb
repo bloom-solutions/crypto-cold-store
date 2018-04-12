@@ -4,6 +4,11 @@ RSpec.describe Tx do
 
   describe "associations" do
     it { is_expected.to belong_to(:address) }
+    it do
+      is_expected.to belong_to(:block).
+        with_foreign_key(:block_hash).
+        with_primary_key(:block_hash)
+    end
   end
 
   describe ".with_confirmations_less_than" do
