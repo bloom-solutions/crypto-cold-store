@@ -4,31 +4,47 @@ module Eth
   RSpec.describe GetBlocksToSync do
 
     context "there are known ethereum txs" do
-      let(:address_other) { create(:address, coin: "btc") }
-      let(:address) { create(:address, coin: "eth") }
-      before do
-        create(:tx, address: address, block_index: 2, confirmations: 1)
-        create(:tx, address: address, block_index: 2, confirmations: 3)
-        create(:tx, address: address, block_index: 33, confirmations: 18)
-        create(:tx, address: address, block_index: 32, confirmations: 18)
-        create(:tx, address: address_other, block_index: 34, confirmations: 10)
+      let!(:block_eth_2) do
+        create(:block, {
+          coin: "eth",
+          height: 2,
+          confirmations: described_class::MAX_CONFS,
+        })
+      end
+      let!(:block_eth_3) do
+        create(:block, {
+          coin: "eth",
+          height: 3,
+          confirmations: described_class::MAX_CONFS-1,
+        })
+      end
+      let!(:block_eth_5) do
+        create(:block, {
+          coin: "eth",
+          height: 5,
+          confirmations: described_class::MAX_CONFS-1,
+        })
+      end
+      let!(:block_btc_8) do
+        create(:block, {
+          coin: "btc",
+          height: 8,
+          confirmations: described_class::MAX_CONFS-1,
+        })
       end
 
-      it "sets unsynced_blocks to include blocks that have not reached #{described_class::MAX_CONFS}" do
-        resulting_ctx = described_class.execute(current_block_number: 35)
-        blocks_below_conf = 35 - described_class::MAX_CONFS
-        expected_unsynced_blocks = [2] + (blocks_below_conf..35).to_a
+      it "sets unsynced_blocks to include earliest insufficiently confirmed block until the current block number" do
+        resulting_ctx = described_class.execute(current_block_number: 7)
+        expected_unsynced_blocks = 3..7
         expect(resulting_ctx.unsynced_blocks).
           to match_array(expected_unsynced_blocks)
       end
     end
 
-    context "there are no ethereum txs" do
-      it "sets unsynced_blocks to include blocks that have not reached #{described_class::MAX_CONFS} to the current_block_number" do
+    context "there are no ethereum blocks" do
+      it "sets unsynced_blocks to include just the current_block_number" do
         resulting_ctx = described_class.execute(current_block_number: 35)
-        blocks_below_conf = 35 - described_class::MAX_CONFS
-        expect(resulting_ctx.unsynced_blocks).
-          to match_array(blocks_below_conf..35)
+        expect(resulting_ctx.unsynced_blocks).to match_array([35])
       end
     end
 

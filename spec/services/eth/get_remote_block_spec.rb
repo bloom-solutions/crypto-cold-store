@@ -5,10 +5,10 @@ module Eth
 
     let(:ethereum_client) { InitEthereumClient.execute.ethereum_client }
 
-    it "sets the remote_block based on the block_index in the context" do
+    it "sets the remote_block based on the block_height in the context" do
       resulting_ctx = described_class.execute(
         ethereum_client: ethereum_client,
-        block_index: 2952850,
+        block_height: 2952850,
       )
       expect(resulting_ctx.remote_block["number"].to_i(16)).
         to eq 2952850

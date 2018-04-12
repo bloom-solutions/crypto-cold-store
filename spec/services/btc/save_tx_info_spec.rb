@@ -53,13 +53,11 @@ module Btc
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,
-          block_index: 2000,
         }).tx
         expect(Tx.count).to eq tx_count+1
         expect(tx.tx_id).to eq "c92f"
         expect(tx.confirmations).to eq 1
         expect(tx.amount).to eq 0.01001774
-        expect(tx.block_index).to eq 2000
       end
     end
 
@@ -70,7 +68,6 @@ module Btc
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,
-          block_index: 2000,
         )
 
         block.update_attributes!(confirmations: 2)
@@ -80,22 +77,9 @@ module Btc
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,
-          block_index: 2000,
         )
         tx = Tx.find_by(tx_id: remote_tx["txid"])
         expect(tx.confirmations).to eq 2
-      end
-    end
-
-    context "block_index does not exist" do
-      it "sets it to nil" do
-        tx = described_class.execute(
-          address: address,
-          remote_tx: remote_tx,
-          remote_tx_output: remote_tx_output,
-        ).tx
-
-        expect(tx.block_index).to be_nil
       end
     end
 
@@ -105,7 +89,6 @@ module Btc
           address: address,
           remote_tx: remote_tx,
           remote_tx_output: remote_tx_output,
-          block_index: 2000,
         ).tx
 
         expect(tx.confirmations).to be_zero

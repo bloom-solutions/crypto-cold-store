@@ -7,19 +7,17 @@ module Eth
     promises :unsynced_blocks
 
     executed do |c|
-      tx = ::Tx.of_coin(:eth).order(block_index: :asc).last
+      block_heights_with_insufficient_confirmations = Block.
+        with_confirmations_less_than(MAX_CONFS).
+        order(height: :asc)
+      earliest_insufficiently_confirmed_block =
+        block_heights_with_insufficient_confirmations.first
 
-      if tx.present?
-        low_conf_tx_block_indices = ::Tx.of_coin(:eth).
-          with_confirmations_less_than(MAX_CONFS).
-          pluck(:block_index)
-
-        min = [tx.block_index, c.current_block_number - MAX_CONFS].min
+      if earliest_insufficiently_confirmed_block.present?
         c.unsynced_blocks =
-          (low_conf_tx_block_indices + (min..c.current_block_number).to_a).uniq
+          earliest_insufficiently_confirmed_block.height..c.current_block_number
       else
-        min = c.current_block_number - MAX_CONFS
-        c.unsynced_blocks = min..c.current_block_number
+        c.unsynced_blocks = [c.current_block_number]
       end
     end
 

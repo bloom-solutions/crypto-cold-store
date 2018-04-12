@@ -55,8 +55,22 @@ module Eth
         expect(tx.amount).to eq 1.1
         expect(tx.address).to eq address
         expect(tx.tx_id).to eq remote_tx["hash"]
-        expect(tx.block_index).to eq 11
         expect(tx.block).to eq block
+      end
+    end
+
+    context "block does not exist (tx is unconfirmed)" do
+      it "does not assign the values related to the block" do
+        resulting_ctx = described_class.execute({
+          address: address,
+          remote_tx: remote_tx,
+        })
+        tx = resulting_ctx.tx
+        expect(tx.confirmations).to be_zero
+        expect(tx.amount).to eq 1.1
+        expect(tx.address).to eq address
+        expect(tx.tx_id).to eq remote_tx["hash"]
+        expect(tx.block).to be_nil
       end
     end
 
