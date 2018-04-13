@@ -9,3 +9,15 @@ refresh_eth_txs:
   class: "CheckTxsJob"
   args:
     - eth
+
+sync_unconfirmed_txs:
+  cron: "*/5 * * * * *"
+  class: "SyncUnconfirmedTxsJob"
+  args:
+    - "btc"
+
+sync_unconfirmed_txs:
+  cron: "*/5 * * * * *"
+  class: "SyncUnconfirmedTxsJob"
+  args:
+    - "eth"
