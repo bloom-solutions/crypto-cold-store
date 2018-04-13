@@ -5,10 +5,10 @@ module Btc
 
     context ".execute" do
       let(:bitcoiner_client) { InitBitcoinerClient.execute.bitcoiner_client }
-      it "sets the block_hash of the block_index in the context" do
+      it "sets the block_hash of the block_height in the context" do
         resulting_ctx = described_class.execute(
           bitcoiner_client: bitcoiner_client,
-          block_index: 2000,
+          block_height: 2000,
         )
         expect(resulting_ctx.block_hash).
           to eq "0000000005bdbddb59a3cd33b69db94fa67669c41d9d32751512b5d7b68c71cf"

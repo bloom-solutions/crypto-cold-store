@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411013239) do
+ActiveRecord::Schema.define(version: 20180412230134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,12 +43,10 @@ ActiveRecord::Schema.define(version: 20180411013239) do
     t.string "tx_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "block_index"
     t.string "block_hash"
     t.index ["address_id", "tx_id"], name: "index_txs_on_address_id_and_tx_id", unique: true
     t.index ["address_id"], name: "index_txs_on_address_id"
     t.index ["block_hash"], name: "index_txs_on_block_hash"
-    t.index ["block_index"], name: "index_txs_on_block_index"
     t.index ["confirmations"], name: "index_txs_on_confirmations"
   end
 

@@ -18,7 +18,6 @@ module Eth
       expect(tx).to be_present
       expect(tx.block).to be_present
       expect(tx.amount.round(18).to_f).to eq 0.229788202932067616
-      expect(tx.block_index).to eq 189
       expect(tx.address).to eq address
       expect(tx.confirmations).to be > 20 # more than what it is at time of writing
     end

@@ -1,24 +1,22 @@
 module Eth
-  class SyncBlock
+  class SyncUnconfirmedTxs
 
     extend LightService::Organizer
 
-    def self.call(block_height)
-      with(block_height: block_height).reduce(actions)
+    def self.call
+      reduce(actions)
     end
 
     def self.actions
       [
         InitEthereumClient,
-        GetCurrentBlock,
-        GetRemoteBlock,
-        SaveBlockInfo,
-        GetRemoteTxs,
+        GetPendingTxs,
         iterate(:remote_txs, [
           FindAddress,
           SaveTxInfo,
           NotifyTxReceipt,
-        ])
+        ]),
+        DeleteDroppedUnconfirmedTxs,
       ]
     end
 

@@ -15,7 +15,6 @@ module Btc
         block_hash: block&.block_hash,
         confirmations: confirmations,
         amount: c.remote_tx_output["value"],
-        block_index: c[:block_index],
       )
 
       c.tx = tx

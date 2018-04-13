@@ -3,8 +3,8 @@ module Btc
 
     extend LightService::Organizer
 
-    def self.call(block_index)
-      with(block_index: block_index).reduce(actions)
+    def self.call(block_height)
+      with(block_height: block_height).reduce(actions)
     end
 
     def self.actions

@@ -53,7 +53,7 @@ group :test do
   gem "webmock"
   gem "timecop"
   gem "rspec-sidekiq"
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers" # for `optional`
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

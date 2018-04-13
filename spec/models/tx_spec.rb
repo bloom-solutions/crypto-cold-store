@@ -7,7 +7,8 @@ RSpec.describe Tx do
     it do
       is_expected.to belong_to(:block).
         with_foreign_key(:block_hash).
-        with_primary_key(:block_hash)
+        with_primary_key(:block_hash).
+        optional
     end
   end
 
