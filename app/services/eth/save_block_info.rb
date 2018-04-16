@@ -11,7 +11,7 @@ module Eth
         first_or_initialize
 
       height = remote_block["number"].to_i(16)
-      confirmations = c.current_block_number - height
+      confirmations = c.current_block_number - height + 1
 
       block.update_attributes!(
         height: height,
