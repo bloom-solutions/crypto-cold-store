@@ -7,7 +7,7 @@ module Eth
     promises :unsynced_blocks
 
     executed do |c|
-      block_heights_with_insufficient_confirmations = Block.
+      block_heights_with_insufficient_confirmations = Block.eth.
         with_confirmations_less_than(MAX_CONFS).
         order(height: :asc)
       earliest_insufficiently_confirmed_block =
