@@ -74,5 +74,23 @@ module Eth
       end
     end
 
+    context "there is no update" do
+      it "skips the rest of the actions" do
+        resulting_ctx = described_class.execute(
+          address: address,
+          remote_tx: remote_tx,
+        )
+
+        expect(resulting_ctx).to_not be_skip_remaining
+
+        resulting_ctx = described_class.execute(
+          address: address,
+          remote_tx: remote_tx,
+        )
+
+        expect(resulting_ctx).to be_skip_remaining
+      end
+    end
+
   end
 end

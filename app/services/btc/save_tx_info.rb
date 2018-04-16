@@ -11,11 +11,13 @@ module Btc
       block = c[:block]
       confirmations = block&.confirmations || 0
 
-      tx.update_attributes(
-        block_hash: block&.block_hash,
-        confirmations: confirmations,
-        amount: c.remote_tx_output["value"],
-      )
+      tx.block_hash = block&.block_hash
+      tx.confirmations = confirmations
+      tx.amount = c.remote_tx_output["value"]
+
+      c.skip_remaining! unless tx.changed?
+
+      tx.save!
 
       c.tx = tx
     end

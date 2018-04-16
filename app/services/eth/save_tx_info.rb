@@ -11,12 +11,14 @@ module Eth
       block = c[:block]
       confirmations = block&.confirmations || 0
       tx = c.address.txs.where(tx_id: tx_id).first_or_initialize
-      tx.update_attributes!(
-        tx_id: tx_id,
-        confirmations: confirmations,
-        amount: c.remote_tx["value"].to_i(16) / ETHER_IN_WEI,
-        block_hash: block&.block_hash,
-      )
+      tx.tx_id = tx_id
+      tx.confirmations = confirmations
+      tx.amount = c.remote_tx["value"].to_i(16) / ETHER_IN_WEI
+      tx.block_hash = block&.block_hash
+
+      c.skip_remaining! unless tx.changed?
+
+      tx.save!
       c.tx = tx
     end
 
