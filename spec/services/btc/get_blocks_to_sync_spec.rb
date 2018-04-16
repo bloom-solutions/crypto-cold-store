@@ -8,7 +8,7 @@ module Btc
       let(:resulting_ctx) do
         described_class.execute(current_block_number: current_block_number)
       end
-      subject { resulting_ctx.blocks_to_sync }
+      subject { resulting_ctx.unsynced_blocks }
       it { is_expected.to match_array [23] }
     end
 
@@ -17,7 +17,7 @@ module Btc
       let(:resulting_ctx) do
         described_class.execute(current_block_number: current_block_number)
       end
-      subject { resulting_ctx.blocks_to_sync }
+      subject { resulting_ctx.unsynced_blocks }
 
       before do
         create(:block, {
@@ -42,7 +42,7 @@ module Btc
       let(:resulting_ctx) do
         described_class.execute(current_block_number: current_block_number)
       end
-      subject { resulting_ctx.blocks_to_sync }
+      subject { resulting_ctx.unsynced_blocks }
 
       before do
         create(:block, {
