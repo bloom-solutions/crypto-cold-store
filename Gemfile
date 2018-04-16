@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "lograge", "0.10.0"
 gem "sidekiq", "~> 5.1"
+gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq-cron", "0.6.3"
 gem "dry-initializer", "~> 2.3"
 gem "dry-types" # required by reform coercion

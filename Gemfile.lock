@@ -310,6 +310,8 @@ GEM
     sidekiq-cron (0.6.3)
       rufus-scheduler (>= 3.3.0)
       sidekiq (>= 4.2.1)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-commands-rspec (1.0.4)
@@ -411,6 +413,7 @@ DEPENDENCIES
   shoulda-matchers!
   sidekiq (~> 5.1)
   sidekiq-cron (= 0.6.3)
+  sidekiq-failures (~> 1.0)
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
