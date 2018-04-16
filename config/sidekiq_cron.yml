@@ -10,13 +10,13 @@ refresh_eth_txs:
   args:
     - eth
 
-sync_unconfirmed_txs:
+sync_unconfirmed_btc_txs:
   cron: "*/5 * * * * *"
   class: "SyncUnconfirmedTxsJob"
   args:
     - "btc"
 
-sync_unconfirmed_txs:
+sync_unconfirmed_eth_txs:
   cron: "*/5 * * * * *"
   class: "SyncUnconfirmedTxsJob"
   args:
