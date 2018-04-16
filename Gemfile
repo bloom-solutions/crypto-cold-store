@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem "lograge", "0.10.0"
 gem "sidekiq", "~> 5.1"
 gem "sidekiq-cron", "0.6.3"
 gem "dry-initializer", "~> 2.3"
