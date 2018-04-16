@@ -7,6 +7,10 @@ module Eth
       expect(described_class < ApplicationJob).to be true
     end
 
+    it "is unique until_executed" do
+      expect(described_class.sidekiq_options["unique"]).to eq :until_executed
+    end
+
     it "delegates work to #{Eth::SyncBlock}" do
       expect(Eth::SyncBlock).to receive(:call).with(4)
       described_class.new.perform(4)
