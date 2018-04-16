@@ -32,7 +32,7 @@ module Eth
           current_block_number: current_block_number,
         ).block
         expect(block).to eq block_eth
-        expect(block.confirmations).to eq 10
+        expect(block.confirmations).to eq 11
         expect(block.block_hash).to eq "abc"
       end
     end
@@ -45,7 +45,7 @@ module Eth
         ).block
         expect(block).to be_eth
         expect(block.block_hash).to eq "abc"
-        expect(block.confirmations).to eq 10
+        expect(block.confirmations).to eq 11
         expect(block.height).to eq 1292030
       end
     end
