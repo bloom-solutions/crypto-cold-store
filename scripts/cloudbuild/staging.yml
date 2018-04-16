@@ -1,5 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
+    args: ["pull", "us.gcr.io/$PROJECT_ID/crypto-cold-store:staging-latest"]
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - "build"
       - "--cache-from=us.gcr.io/$PROJECT_ID/crypto-cold-store:staging-latest"
