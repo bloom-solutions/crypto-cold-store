@@ -43,5 +43,5 @@ RUN gem install bundler --no-ri --no-rdoc && \
 
 ADD . $APP
 
-RUN cp $APP/config/database.yml.sample $APP/config/database.yml && \
+RUN cp $APP/config/database.yml.prod $APP/config/database.yml && \
   bundle exec rails assets:precompile

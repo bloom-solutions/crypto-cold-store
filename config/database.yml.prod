@@ -1,0 +1,9 @@
+---
+production:
+  adapter: postgresql
+  database: app_production
+  host: localhost # running app and tests from the host
+  username: postgres
+  password:
+  pool: 20
+  encoding: unicode
