@@ -12,6 +12,7 @@ module Btc
         InitBitcoinerClient,
         GetBlockHash,
         GetRemoteBlock,
+        DeleteForkedBlock,
         SaveBlockInfo,
         GetRemoteTxs,
         iterate(:remote_txs, [
