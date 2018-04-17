@@ -10,11 +10,17 @@ module Btc
       })
     end
 
+    before do
+      create(:block, coin: "btc", height: 1291920, block_hash: "abc")
+    end
+
     it "syncs the block txs of known addresses" do
       described_class.(1291920)
       tx = ::Tx.of_coin(:btc).
         find_by(tx_id: "91db12fc69c98a2fed7e419859280c64c71c8f34f874a9022a114e9d509253ca")
 
+      # Delete forked blocks
+      expect(Block.btc.find_by(block_hash: "abc")).to be_nil
       expect(tx).to be_present
       expect(tx.block).to be_present
       expect(tx.amount.to_f).to eq 1.799772
