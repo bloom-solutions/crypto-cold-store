@@ -4,6 +4,7 @@ else
   MessageBus.configure({
     backend: :postgres,
     backend_options: ENV["MESSAGE_BUS_PG_CONNECTION_STRING"],
+    clear_every: 1_000,
   })
 
   # 10 days in seconds
