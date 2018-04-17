@@ -32,13 +32,6 @@ module Eth
           confirmations: described_class::MAX_CONFS-1,
         })
       end
-      let!(:block_btc_1) do
-        create(:block, {
-          coin: "btc",
-          height: 2,
-          confirmations: described_class::MAX_CONFS-1,
-        })
-      end
 
       it "sets unsynced_blocks to include earliest insufficiently confirmed block until the current block number" do
         resulting_ctx = described_class.execute(current_block_number: 7)
