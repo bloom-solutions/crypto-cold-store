@@ -8,14 +8,6 @@ module Btc
     end
 
     context "block exists" do
-      let!(:block_eth) do
-        create(:block, {
-          coin: "eth",
-          block_hash: "abc",
-          confirmations: 2,
-          height: 1292030,
-        })
-      end
       let!(:block_btc) do
         create(:block, {
           coin: "btc",
@@ -26,7 +18,10 @@ module Btc
       end
 
       it "updates the block info" do
-        block = described_class.execute(remote_block: remote_block).block
+        block = described_class.execute(
+          remote_block: remote_block,
+          blocks: Block.btc,
+        ).block
         expect(block).to eq block_btc
         expect(block.confirmations).to eq 3
       end
@@ -34,7 +29,10 @@ module Btc
 
     context "block does not exist" do
       it "saves the block info" do
-        block = described_class.execute(remote_block: remote_block).block
+        block = described_class.execute(
+          remote_block: remote_block,
+          blocks: Block.btc,
+        ).block
         expect(block).to be_btc
         expect(block.block_hash).to eq "abc"
         expect(block.confirmations).to eq 3

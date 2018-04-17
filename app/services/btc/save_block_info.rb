@@ -2,12 +2,12 @@ module Btc
   class SaveBlockInfo
 
     extend LightService::Action
-    expects :remote_block
+    expects :blocks, :remote_block
     promises :block
 
     executed do |c|
       remote_block = c.remote_block
-      block = Block.btc.where(block_hash: remote_block["hash"]).
+      block = c.blocks.where(block_hash: remote_block["hash"]).
         first_or_initialize
       block.update_attributes!(
         height: remote_block["height"],

@@ -6,7 +6,10 @@ module Btc
     context "there are no block records" do
       let(:current_block_number) { 23 }
       let(:resulting_ctx) do
-        described_class.execute(current_block_number: current_block_number)
+        described_class.execute(
+          current_block_number: current_block_number,
+          blocks: Block.btc,
+        )
       end
       subject { resulting_ctx.unsynced_blocks }
       it { is_expected.to match_array [23] }
@@ -15,16 +18,14 @@ module Btc
     context "there are block records; there are unknown blocks" do
       let(:current_block_number) { 23 }
       let(:resulting_ctx) do
-        described_class.execute(current_block_number: current_block_number)
+        described_class.execute(
+          current_block_number: current_block_number,
+          blocks: Block.btc,
+        )
       end
       subject { resulting_ctx.unsynced_blocks }
 
       before do
-        create(:block, {
-          coin: "eth",
-          height: 22,
-          confirmations: described_class::MAX_CONFS,
-        })
         create(:block, {
           coin: "btc",
           height: 20,
@@ -40,7 +41,10 @@ module Btc
     context "there are block records; there are blocks with unsufficient confirmations" do
       let(:current_block_number) { 23 }
       let(:resulting_ctx) do
-        described_class.execute(current_block_number: current_block_number)
+        described_class.execute(
+          current_block_number: current_block_number,
+          blocks: Block.btc,
+        )
       end
       subject { resulting_ctx.unsynced_blocks }
 

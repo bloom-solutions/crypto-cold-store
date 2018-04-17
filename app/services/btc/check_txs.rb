@@ -10,6 +10,7 @@ module Btc
     def self.actions
       [
         InitBitcoinerClient,
+        SetBlocks,
         GetCurrentBlock,
         GetBlocksToSync,
         iterate(:unsynced_blocks, [
