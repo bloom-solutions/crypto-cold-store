@@ -10,6 +10,7 @@ module Eth
     def self.actions
       [
         InitEthereumClient,
+        SetBlocks,
         GetCurrentBlock,
         GetRemoteBlock,
         DeleteForkedBlock,

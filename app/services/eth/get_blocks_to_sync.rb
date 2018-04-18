@@ -3,11 +3,11 @@ module Eth
 
     MAX_CONFS = 20
     extend LightService::Action
-    expects :current_block_number
+    expects :blocks, :current_block_number
     promises :unsynced_blocks
 
     executed do |c|
-      block_heights_with_insufficient_confirmations = Block.eth.
+      block_heights_with_insufficient_confirmations = c.blocks.
         with_confirmations_less_than(MAX_CONFS).
         order(height: :asc)
       earliest_insufficiently_confirmed_block =

@@ -10,6 +10,7 @@ module Btc
     def self.actions
       [
         InitBitcoinerClient,
+        SetBlocks,
         GetBlockHash,
         GetRemoteBlock,
         DeleteForkedBlock,

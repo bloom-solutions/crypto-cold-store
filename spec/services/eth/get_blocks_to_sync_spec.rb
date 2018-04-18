@@ -25,16 +25,12 @@ module Eth
           confirmations: described_class::MAX_CONFS-1,
         })
       end
-      let!(:block_btc_8) do
-        create(:block, {
-          coin: "btc",
-          height: 8,
-          confirmations: described_class::MAX_CONFS-1,
-        })
-      end
 
       it "sets unsynced_blocks to include earliest insufficiently confirmed block until the current block number" do
-        resulting_ctx = described_class.execute(current_block_number: 7)
+        resulting_ctx = described_class.execute(
+          current_block_number: 7,
+          blocks: Block.eth,
+        )
         expected_unsynced_blocks = 3..7
         expect(resulting_ctx.unsynced_blocks).
           to match_array(expected_unsynced_blocks)
@@ -43,7 +39,10 @@ module Eth
 
     context "there are no ethereum blocks" do
       it "sets unsynced_blocks to include just the current_block_number" do
-        resulting_ctx = described_class.execute(current_block_number: 35)
+        resulting_ctx = described_class.execute(
+          current_block_number: 35,
+          blocks: Block.eth,
+        )
         expect(resulting_ctx.unsynced_blocks).to match_array([35])
       end
     end
