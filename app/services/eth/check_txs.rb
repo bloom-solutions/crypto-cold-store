@@ -11,6 +11,7 @@ module Eth
       [
         InitEthereumClient,
         GetCurrentBlock,
+        SetBlocks,
         GetBlocksToSync,
         iterate(:unsynced_blocks, [
           EnqueueSyncBlockJob,
