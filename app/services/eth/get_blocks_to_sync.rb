@@ -1,7 +1,7 @@
 module Eth
   class GetBlocksToSync
 
-    MAX_CONFS = 20
+    MAX_CONFS = 150
     extend LightService::Action
     expects :blocks, :current_block_number
     promises :unsynced_blocks
