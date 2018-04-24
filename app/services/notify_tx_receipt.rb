@@ -15,7 +15,9 @@ class NotifyTxReceipt
       address: address.address,
       amount: c.tx.amount,
       confirmations: c.tx.confirmations,
+      last_id: MessageBus.last_id(CHANNEL),
     }
+
     MessageBus.publish CHANNEL, data.to_json
   end
 
