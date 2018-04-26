@@ -6,23 +6,21 @@ module Btc
 
       def self.call(
         code:,
-        master_public_key: ENV["BTC_MASTER_PUBLIC_KEY"]
+        master_public_key: ENV["BTC_MASTER_PUBLIC_KEY"],
+        signatures_required: ENV["BTC_SIGNATURES_REQUIRED"]
       )
         ctx = {
           code: code,
           master_public_key: master_public_key,
+          signatures_required: signatures_required,
         }
-
-        actions = actions_for({
-          master_public_key: master_public_key,
-        })
 
         with(ctx).reduce(actions)
       end
 
-      def self.actions_for(master_public_key:)
+      def self.actions
         actions = [
-          InitBtcrubyKeychain,
+          SplitMasterPublicKey,
           Creation::Btcruby::GetAddressIndex,
           Creation::Btcruby::GenAddress,
           Creation::SaveAddress,

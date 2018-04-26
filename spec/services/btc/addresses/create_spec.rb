@@ -6,7 +6,7 @@ module Btc
 
       it "calls actions in order" do
         actions = [
-          InitBtcrubyKeychain,
+          SplitMasterPublicKey,
           Creation::Btcruby::GetAddressIndex,
           Creation::Btcruby::GenAddress,
           Creation::SaveAddress,
@@ -14,14 +14,19 @@ module Btc
 
         ctx = LightService::Context.new({
           code: "123",
-          master_public_key: "mympk",
+          master_public_key: "mympk,mympk2",
+          signatures_required: 1,
         })
 
         actions.each do |action|
           expect(action).to receive(:execute).with(ctx).and_return(ctx)
         end
 
-        described_class.(code: "123", master_public_key: "mympk")
+        described_class.(
+          code: "123",
+          master_public_key: "mympk,mympk2",
+          signatures_required: 1,
+        )
       end
 
     end

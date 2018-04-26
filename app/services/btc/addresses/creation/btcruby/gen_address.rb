@@ -5,12 +5,15 @@ module Btc
         class GenAddress
 
           extend LightService::Action
-          expects :keychain, :address_index
+          expects :address_index, :master_public_key, :signatures_required
           promises :public_address
 
           executed do |c|
-            c.public_address =
-              c.keychain.derived_key(c.address_index).address.to_s
+            generator = Btc::AddressGenerator.new(
+              xpub: c.master_public_key,
+              signatures_required: c.signatures_required,
+            )
+            c.public_address = generator.address(c.address_index)
           end
 
         end

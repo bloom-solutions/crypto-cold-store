@@ -7,24 +7,21 @@ module Btc
         RSpec.describe GenAddress do
 
           let(:master_public_key) do
-            "xpub6FMbbkESWrcdwWdJgfW4qPMF8JhjTbLgKoSjKofd6X5f1rjz1qm3N3nQ4DfFcz8SHPNrVq4RzfmvRG488LPY7d59r4Cp4bV7e7G6zvUA8MU"
+            [
+              "xpub6DY7Fqdz98GSsFDN96Levia3PwnREqhFER5RtKwiwrDzBJpEtGX5VcZdPrLgJriUfStunLmWYxrHM6XPygEJhrXZGrVh1fVZc2AQkAVPf9n",
+              "xpub6DfZs3n92pxJ3LCBf7bfgbyrECteT8PWmee5UpZhG1aBurdF5t1Tu2jxdnCBXETztHu6YkJ8Hin8t8qwPsh3YScNX3dLxduNSaevLF3KLpq",
+              "xpub6FFgmnaotx9GP3XkdK8oS8j3ExWBXXGdJ5LeWYmCHUAppaG85HPm4QRGrtowZJfwzDqjKkp1kc5mzUwa2W1PEicuynzC45myaa4vVG7bNJy",
+            ]
           end
-          let(:keychain) { BTC::Keychain.new(xpub: master_public_key) }
-          let(:address_0) { "1FTwdEtxdswwLmVeyAn8Rx8nVCVziRtVDs" }
-          let(:address_3) { "1HrCwg2zpU8yqmndv2upPDXWKUmJkowqAQ" }
+          let(:address_18) { "3GAGdkU6awG9aiDyiyrmrjvo8tpHbab5Ff" }
 
           it "generates an address based on the keychain[address_index]" do
             resulting_ctx = described_class.execute(
-              keychain: keychain,
-              address_index: 0,
+              master_public_key: master_public_key,
+              signatures_required: 2,
+              address_index: 18,
             )
-            expect(resulting_ctx.public_address).to eq address_0
-
-            resulting_ctx = described_class.execute(
-              keychain: keychain,
-              address_index: 3,
-            )
-            expect(resulting_ctx.public_address).to eq address_3
+            expect(resulting_ctx.public_address).to eq address_18
           end
 
         end
