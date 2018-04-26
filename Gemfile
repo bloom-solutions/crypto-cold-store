@@ -28,7 +28,7 @@ gem "bitcoiner", github: "bloom-solutions/bitcoiner", branch: "all_features"
 gem "light-service", "0.10.2"
 gem "addressable", "~> 2.5"
 gem "message_bus", "~> 2.1"
-gem "btcruby", "~> 1.7"
+gem "btcruby", github: "bloom-solutions/btcruby", branch: "bloom_changes"
 gem "ethereum.rb", "~> 2.2"
 gem "bip44", "0.2.14"
 
