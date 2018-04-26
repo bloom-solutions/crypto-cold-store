@@ -24,7 +24,6 @@ gem "dry-types" # required by reform coercion
 gem "dry-validation"
 gem "trailblazer-rails", "~> 2.0"
 gem "pg", "0.21.0"
-gem "electrum_rpc_json_client", "0.1.0"
 gem "bitcoiner", github: "bloom-solutions/bitcoiner", branch: "all_features"
 gem "light-service", "0.10.2"
 gem "addressable", "~> 2.5"

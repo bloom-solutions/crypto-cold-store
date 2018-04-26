@@ -5,7 +5,6 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   [
-    "ELECTRUM_HOST",
     "ETHEREUM_HOST",
     "BITCOIND_HOST",
     "BITCOIND_RPC_USER",

@@ -6,9 +6,6 @@ module Btc
       module Btcruby
         RSpec.describe GetAddressIndex do
 
-          # This should work even if the user switches from Electrum to Btcruby
-          # and back -- there might be some addresses that will be wasted,
-          # though.
           before do
             create(:address, coin: "btc")
             create(:address, coin: "ltc")
