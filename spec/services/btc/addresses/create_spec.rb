@@ -7,8 +7,8 @@ module Btc
       it "calls actions in order" do
         actions = [
           SplitMasterPublicKey,
-          Creation::Btcruby::GetAddressIndex,
-          Creation::Btcruby::GenAddress,
+          Creation::GetAddressIndex,
+          Creation::GenAddress,
           Creation::SaveAddress,
         ]
 

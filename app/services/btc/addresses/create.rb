@@ -21,8 +21,8 @@ module Btc
       def self.actions
         actions = [
           SplitMasterPublicKey,
-          Creation::Btcruby::GetAddressIndex,
-          Creation::Btcruby::GenAddress,
+          Creation::GetAddressIndex,
+          Creation::GenAddress,
           Creation::SaveAddress,
         ]
       end
