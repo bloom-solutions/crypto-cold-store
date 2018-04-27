@@ -7,37 +7,22 @@ module Btc
       def self.call(
         code:,
         master_public_key: ENV["BTC_MASTER_PUBLIC_KEY"],
-        electrum_host: ENV["ELECTRUM_HOST"]
+        signatures_required: ENV["BTC_SIGNATURES_REQUIRED"]
       )
         ctx = {
           code: code,
           master_public_key: master_public_key,
-          electrum_host: electrum_host,
+          signatures_required: signatures_required,
         }
-
-        actions = actions_for({
-          master_public_key: master_public_key,
-          electrum_host: electrum_host,
-        })
 
         with(ctx).reduce(actions)
       end
 
-      def self.actions_for(master_public_key:, electrum_host:)
-        actions = if master_public_key.present?
-                    [
-                      InitBtcrubyKeychain,
-                      Creation::Btcruby::GetAddressIndex,
-                      Creation::Btcruby::GenAddress,
-                    ]
-                  else
-                    [
-                      InitElectrumClient,
-                      Creation::Electrum::FindUnusedAddress,
-                    ]
-                  end
-
-        actions += [
+      def self.actions
+        actions = [
+          SplitMasterPublicKey,
+          Creation::GetAddressIndex,
+          Creation::GenAddress,
           Creation::SaveAddress,
         ]
       end

@@ -47,7 +47,7 @@ module Btc
       end
     end
 
-    context "address is present" do
+    context "address is a `pubkeyhash`" do
       let(:remote_tx_output) do
         {
           "value" => 0.01001774,
@@ -72,6 +72,36 @@ module Btc
           coin: "btc",
           address: "n423UweU1UvsebP1gmduMjaA2y2nz81iWR",
         })
+      end
+
+      it "returns the btc address matching the given public address" do
+        resulting_ctx = described_class.execute(
+          remote_tx: remote_tx,
+          remote_tx_output: remote_tx_output,
+        )
+        expect(resulting_ctx.address).to eq address_2
+      end
+    end
+
+    context "address is a `scripthash`" do
+      let(:remote_tx_output) do
+        {
+          "value" => 0.01001774,
+          "n" => 0,
+          "scriptPubKey" => {
+            "asm" => "asm...",
+            "hex" => "76a914f",
+            "reqSigs" => 1,
+            "type" => "scripthash",
+            "addresses" => ["3AHSUvWK"]
+          }
+        }
+      end
+      let!(:address_1) do
+        create(:address, coin: "ltc", address: "3AHSUvWK")
+      end
+      let!(:address_2) do
+        create(:address, coin: "btc", address: "3AHSUvWK")
       end
 
       it "returns the btc address matching the given public address" do
