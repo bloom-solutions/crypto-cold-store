@@ -5,7 +5,7 @@ module Btc
 
     def initialize(xpub:, signatures_required: nil)
       @xpub = Array(xpub)
-      @signatures_required = signatures_required
+      @signatures_required = signatures_required.to_i
 
       return if @xpub.count == 1
 

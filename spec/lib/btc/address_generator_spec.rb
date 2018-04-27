@@ -38,7 +38,7 @@ module Btc
         end
 
         it "initializes a generator" do
-          generator = described_class.new(xpub: xpub, signatures_required: 2)
+          generator = described_class.new(xpub: xpub, signatures_required: "2")
           expect(generator.xpub).to eq xpub
           expect(generator.signatures_required).to eq 2
         end
