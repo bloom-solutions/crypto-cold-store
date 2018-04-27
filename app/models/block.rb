@@ -14,4 +14,17 @@ class Block < ApplicationRecord
     where(confirmations.lt(n))
   end
 
+  scope :with_height_greater_than_or_equal_to, ->(height) do
+    where(arel_table[:height].gteq(height))
+  end
+
+  scope :with_height_less_than_or_equal_to, ->(height) do
+    where(arel_table[:height].lteq(height))
+  end
+
+  class << self
+    alias :with_height_gteq :with_height_greater_than_or_equal_to
+    alias :with_height_lteq :with_height_less_than_or_equal_to
+  end
+
 end
