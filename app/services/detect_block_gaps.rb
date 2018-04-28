@@ -8,8 +8,9 @@ class DetectBlockGaps
 
   executed do |c|
     blocks = c.blocks.order(height: :asc)
+    start_height = blocks.first.height
     limit = blocks.last.height
-    c.unsynced_blocks = get_missing_blocks_in(blocks, 1, limit)
+    c.unsynced_blocks = get_missing_blocks_in(blocks, start_height, limit)
   end
 
   def self.get_missing_blocks_in(blocks, start_height, limit)
