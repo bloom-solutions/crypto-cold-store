@@ -25,11 +25,10 @@ module Btc
 
     def multisig_address(idx)
       keychain_group = BTC::KeychainGroup.new(extended_keys: xpub)
-      multisig_script = keychain_group.multisig_script({
+      keychain_group.standard_address({
         index: idx,
-        signatures_required: self.signatures_required,
+        signatures_required: signatures_required,
       })
-      multisig_script.p2sh_script.standard_address.to_s
     end
 
     def single_address(idx)
