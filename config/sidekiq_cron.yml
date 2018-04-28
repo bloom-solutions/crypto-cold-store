@@ -21,3 +21,15 @@ sync_unconfirmed_eth_txs:
   class: "SyncUnconfirmedTxsJob"
   args:
     - "eth"
+
+sync_btc_missing_blocks:
+  cron: "0 0 * * *"
+  class: "SyncMissingBlocksJob"
+  args:
+    - "btc"
+
+sync_eth_missing_blocks:
+  cron: "0 0 * * *"
+  class: "SyncMissingBlocksJob"
+  args:
+    - "eth"
