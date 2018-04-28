@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/bloom-solutions/btcruby.git
-  revision: 96f555012e684a7fc5abf9896dd783cb7b320136
+  revision: d0a7f0c9eca61c3e038bf16ca717d55e65155c12
   branch: bloom_changes
   specs:
     btcruby (1.7)
