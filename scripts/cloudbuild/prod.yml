@@ -5,7 +5,6 @@ steps:
       - "--file=ops/prod/Dockerfile"
       - "--tag=us.gcr.io/$PROJECT_ID/crypto-cold-store:prod-latest"
       - "--tag=us.gcr.io/$PROJECT_ID/crypto-cold-store:$REVISION_ID"
-      - "--build-arg=PRODUCTION_KEY1=$_PRODUCTION_KEY1"
       - "."
 images:
   - 'us.gcr.io/$PROJECT_ID/crypto-cold-store'
