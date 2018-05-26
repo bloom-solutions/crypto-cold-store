@@ -24,11 +24,18 @@ module Btc
     private
 
     def multisig_address(idx)
-      keychain_group = BTC::KeychainGroup.new(extended_keys: xpub)
-      keychain_group.standard_address({
-        index: idx,
-        signatures_required: signatures_required,
-      })
+      keychains = xpub.map { |x| BTC::Keychain.new(extended_key: x) }
+      keys = keychains.map { |keychain| keychain.derived_key(idx) }
+      public_keys = keys.map { |key| BTC.to_hex(key.public_key) }.sort
+
+      command = [
+        "node",
+        Rails.root.join("lib", "address_gen.js"),
+        public_keys.join(","),
+        signatures_required,
+      ].join(" ")
+      stdout_str, stderr_str, status = Open3.capture3(command)
+      stdout_str.chomp
     end
 
     def single_address(idx)
