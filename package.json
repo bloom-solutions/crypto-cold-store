@@ -1,5 +1,7 @@
 {
   "name": "crypto_cold_store",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bitcoinjs-lib": "^3.3.2"
+  }
 }
