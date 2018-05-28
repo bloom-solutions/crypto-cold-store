@@ -17,6 +17,8 @@ class NotifyTxReceipt
       confirmations: c.tx.confirmations,
     }
     MessageBus.publish CHANNEL, data.to_json
+
+    Rails.logger.info(data)
   end
 
 end
