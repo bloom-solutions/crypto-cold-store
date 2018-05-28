@@ -1,4 +1,12 @@
 deploys:
+  - branch: master
+    namespace: bx8-prod
+    template: "us.gcr.io/bloom-general/crypto-cold-store:$GIT_COMMIT"
+    targets:
+      - deployment_name: crypto-cold-store-web
+        container: crypto-cold-store-web
+      - deployment_name: crypto-cold-store-sidekiq
+        container: crypto-cold-store-sidekiq
   - branch: /staging_(\d+)/
     namespace: bx8-staging
     template: "us.gcr.io/bloom-general/crypto-cold-store:$GIT_COMMIT"
