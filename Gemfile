@@ -19,6 +19,7 @@ gem "sidekiq", "~> 5.1"
 gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq-cron", "0.6.3"
 gem "sidekiq-unique-jobs", "~> 5.0"
+gem "sidekiq_alive", "0.1.0"
 gem "dry-initializer", "~> 2.3"
 gem "dry-types" # required by reform coercion
 gem "dry-validation"
