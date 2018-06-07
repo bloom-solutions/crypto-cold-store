@@ -31,6 +31,7 @@ Customization is done through setting environment variables. For coin-specific v
 - `DB_POOL` is the maximum number of db connections (per Rails process) will be opened
 - `SECRET_KEY_BASE` ([Rails setting](https://stackoverflow.com/questions/25426940/what-is-the-use-of-secret-key-base-in-rails-4/25427302))
 - `DATABASE_URL` is the connection string to PostgreSQL
+- `SIDEKIQ_USERNAME` & `SIDEKIQ_PASSWORD`: these protect the Sidekiq dashboard at `/sidekiq`. If not set, the dashboard will not be mounted.
 - `SIDEKIQ_CONCURRENCY` controls how many Sidekiq workers are created per Sidekiq/Rails process
 - `RAILS_LOG_TO_STDOUT` can be any non-nil value to print out the logs to `STDOUT`
 - MessageBus:
