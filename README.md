@@ -23,3 +23,9 @@ See `spec/requests/deposit_details_spec.rb`.
 ## Testing
 
 Writing and re-running functional tests are more difficult, especially when having to deal with blockchains that are slow to load. When re-recording VCR cassettes, the test suite assumes that the blockchain nodes are accessible from this instance. Furthermore:
+
+## Customizing
+
+Customization is done through setting environment variables. For coin-specific variables, see the [Coins Supported](#coins-supported) section. Here you will find generic variables:
+
+- `DB_POOL` is the maximum number of db connections (per Rails process) will be opened

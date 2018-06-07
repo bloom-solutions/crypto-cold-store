@@ -5,5 +5,5 @@ production:
   host: localhost # running app and tests from the host
   username: postgres
   password:
-  pool: 100
+  pool: <%= ENV["DB_POOL"] || 5 %>
   encoding: unicode
