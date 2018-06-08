@@ -10,11 +10,14 @@ Rails.application.routes.draw do
     end
   end
 
+  sidekiq_username = ENV.fetch("SIDEKIQ_USERNAME") { nil }
+  sidekiq_password = ENV.fetch("SIDEKIQ_PASSWORD") { nil }
+
   Sidekiq::Web.use Rack::Auth::Basic do |username, password|
     given_username_hash = ::Digest::SHA256.hexdigest(username)
-    username_hash = ::Digest::SHA256.hexdigest(ENV["SIDEKIQ_USERNAME"])
+    username_hash = ::Digest::SHA256.hexdigest(sidekiq_username)
     given_password_hash = ::Digest::SHA256.hexdigest(password)
-    password_hash = ::Digest::SHA256.hexdigest(ENV["SIDEKIQ_PASSWORD"])
+    password_hash = ::Digest::SHA256.hexdigest(sidekiq_password)
 
     username_comparison = ActiveSupport::SecurityUtils.
       secure_compare(given_username_hash, username_hash)
@@ -23,7 +26,11 @@ Rails.application.routes.draw do
 
     username_comparison & password_comparison
   end if Rails.env.production?
-  mount Sidekiq::Web => '/sidekiq'
+
+  if sidekiq_username.present? && sidekiq_password.present? ||
+      !Rails.env.production?
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   match({
     "queue-status" => proc {
