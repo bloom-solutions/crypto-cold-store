@@ -23,3 +23,17 @@ See `spec/requests/deposit_details_spec.rb`.
 ## Testing
 
 Writing and re-running functional tests are more difficult, especially when having to deal with blockchains that are slow to load. When re-recording VCR cassettes, the test suite assumes that the blockchain nodes are accessible from this instance. Furthermore:
+
+## Customizing
+
+Customization is done through setting environment variables. For coin-specific variables, see the [Coins Supported](#coins-supported) section. Here you will find generic variables:
+
+- `DB_POOL` is the maximum number of db connections (per Rails process) will be opened
+- `SECRET_KEY_BASE` ([Rails setting](https://stackoverflow.com/questions/25426940/what-is-the-use-of-secret-key-base-in-rails-4/25427302))
+- `DATABASE_URL` is the connection string to PostgreSQL
+- `SIDEKIQ_CONCURRENCY` controls how many Sidekiq workers are created per Sidekiq/Rails process
+- `RAILS_LOG_TO_STDOUT` can be any non-nil value to print out the logs to `STDOUT`
+- MessageBus:
+  - `MESSAGE_BUS_PG_CONNECTION_STRING` is the connection string in this format: `dbname=db-name user=db-user password=db-pass host=db-host`
+  - there are more variables you can find in `config/initializers/message_bus.rb`
+- There are variables specific to puma, the web server. Those can be found in `config/puma.rb`
