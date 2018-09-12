@@ -2,8 +2,8 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: crypto-cold-store-sidekiq
-  namespace: bx8-staging
+  name: sidekiq
+  namespace: ccs-staging
   annotations:
     shipit.shopify.io/restart: "true"
 spec:
@@ -15,11 +15,11 @@ spec:
   template:
     metadata:
       labels:
-        app: crypto-cold-store-sidekiq
+        app: sidekiq
     spec:
       containers:
-        - name: crypto-cold-store-sidekiq
-          image: us.gcr.io/bloom-general/bloom-trade:<%= current_sha %>
+        - name: sidekiq
+          image: us.gcr.io/bloom-general/crypto-cold-store:<%= current_sha %>
           command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
           resources:
             requests:

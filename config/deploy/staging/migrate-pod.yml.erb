@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: crypto-cold-store-migrate-<%= deployment_id %>
-  namespace: bx8-staging
+  name: migrate-<%= deployment_id %>
+  namespace: ccs-staging
 spec:
   # Max of 10 minute migrations; can adjust if we have longer ones
   activeDeadlineSeconds: 600
   restartPolicy: Never
   containers:
-    - name: crypto-cold-store-migrate
+    - name: migrate
       image: us.gcr.io/bloom-general/crypto-cold-store:<%= current_sha %>
       command: ["bundle", "exec", "rake", "db:migrate"]
       env: <%= partial "env" %>

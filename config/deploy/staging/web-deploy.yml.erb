@@ -2,8 +2,8 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: crypto-cold-store-web
-  namespace: bx8-staging
+  name: web
+  namespace: ccs-staging
   annotations:
     shipit.shopify.io/restart: "true"
 spec:
@@ -11,10 +11,10 @@ spec:
   template:
     metadata:
       labels:
-        app: crypto-cold-store-web
+        app: web
     spec:
       containers:
-        - name: crypto-cold-store-web
+        - name: web
           image: us.gcr.io/bloom-general/crypto-cold-store:<%= current_sha %>
           command: ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
           ports:
