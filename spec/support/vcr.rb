@@ -7,8 +7,8 @@ VCR.configure do |config|
   [
     "ETHEREUM_HOST",
     "BITCOIND_HOST",
-    "BITCOIND_RPC_USER",
-    "BITCOIND_RPC_PASSWORD",
+    "BITCOIND_USERNAME",
+    "BITCOIND_PASSWORD",
   ].each do |var|
     config.filter_sensitive_data("[#{var}]") { ENV[var] }
   end
