@@ -5,8 +5,8 @@ class InitBitcoinerClient
 
   executed do |c|
     c.bitcoiner_client = Bitcoiner.new(
-      ENV["BITCOIND_RPC_USER"],
-      ENV["BITCOIND_RPC_PASSWORD"],
+      ENV["BITCOIND_USERNAME"],
+      ENV["BITCOIND_PASSWORD"],
       ENV["BITCOIND_HOST"],
     )
   end

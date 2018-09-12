@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/bloom-solutions/bitcoiner.git
-  revision: 8f0e6ffdd55f414583fae6e758ecedc77c2ca957
-  branch: all_features
-  specs:
-    bitcoiner (0.1.1)
-      addressable
-      typhoeus (~> 1.3.0)
-
-GIT
   remote: https://github.com/bloom-solutions/btcruby.git
   revision: d0a7f0c9eca61c3e038bf16ca717d55e65155c12
   branch: bloom_changes
@@ -74,6 +65,9 @@ GEM
       money-tree
       rlp (~> 0.7.3)
     bip_mnemonic (0.0.2)
+    bitcoiner (0.1.3)
+      addressable
+      typhoeus (~> 1.3.0)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
@@ -163,7 +157,7 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -212,7 +206,7 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     puma (3.11.3)
     rack (2.0.4)
     rack-protection (2.0.1)
@@ -389,7 +383,7 @@ PLATFORMS
 DEPENDENCIES
   addressable (~> 2.5)
   bip44 (= 0.2.14)
-  bitcoiner!
+  bitcoiner (= 0.1.3)
   btcruby!
   byebug
   capybara (~> 2.13)
@@ -433,4 +427,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.2
+   1.16.3

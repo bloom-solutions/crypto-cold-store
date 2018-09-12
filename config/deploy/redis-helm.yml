@@ -1,0 +1,6 @@
+# Installed like this:
+# helm install --namespace ccs-staging -f config/deploy/redis-helm.yml --name=ccs-staging-redis stable/redis
+---
+usePassword: false
+cluster:
+  enabled: false

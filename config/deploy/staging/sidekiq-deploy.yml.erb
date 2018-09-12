@@ -1,0 +1,49 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sidekiq
+  namespace: ccs-staging
+  annotations:
+    shipit.shopify.io/restart: "true"
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: sidekiq
+    spec:
+      containers:
+        - name: sidekiq
+          image: us.gcr.io/bloom-general/crypto-cold-store:<%= current_sha %>
+          command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
+          resources:
+            requests:
+              cpu: 512m
+              memory: 512Mi
+            limits:
+              cpu: 1
+              memory: 1Gi
+          env: <%= partial "env" %>
+          ports:
+            - containerPort: 7433
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 7433
+            initialDelaySeconds: 80
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 7433
+            initialDelaySeconds: 80
+            timeoutSeconds: 5
+          lifecycle:
+            preStop:
+              exec:
+                command: ["bundle", "exec", "sidekiqctl", "quiet"]
