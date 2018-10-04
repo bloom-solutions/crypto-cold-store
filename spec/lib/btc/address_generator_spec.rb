@@ -93,7 +93,7 @@ module Btc
         end
 
         it "generates an address at the given index for the required number of signatures" do
-          expect(generator.address(0)).to eq "3GbE5Hn5NNfAbkk33AquoZqtoehkDDBEZn"
+          expect(generator.address(0)).to eq "32Zt24PnJSjhgVvBKoZiyqPz26AmgUo1sV"
           expect(generator.address(18)).to eq "3CwgJ7iYBWufLpwgsGKikjEH5YL38CAfz3"
         end
       end
