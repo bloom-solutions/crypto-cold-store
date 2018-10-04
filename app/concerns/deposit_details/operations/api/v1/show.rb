@@ -6,8 +6,8 @@ module DepositDetails
 
           # TODO test each min is an enum in Address#coin
           MIN = {
-            btc: 0.001,
-            eth: 0.0001,
+            btc: 0.00001,
+            eth: 0.00001,
           }.with_indifferent_access
 
           step :init_model!
