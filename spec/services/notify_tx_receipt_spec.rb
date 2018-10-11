@@ -11,7 +11,7 @@ RSpec.describe NotifyTxReceipt do
     described_class.execute(tx: tx)
     messages = MessageBus.backlog described_class::CHANNEL, 0
     expect(messages.count).to be > 0
-    data = JSON.parse(messages.last.data)
+    data = messages.last.data
     expect(data["coin"]).to eq "btc"
     expect(data["code"]).to eq "123"
     expect(data["tx_id"]).to eq "txid"
