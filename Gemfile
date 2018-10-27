@@ -20,7 +20,7 @@ gem "pg", "0.21.0"
 gem "sidekiq", "~> 5.1"
 gem "sidekiq-cron", "0.6.3"
 gem "sidekiq-failures", "~> 1.0"
-gem "sidekiq-unique-jobs", "~> 5.0"
+gem "sidekiq-unique-jobs", "~> 6.0"
 gem "sidekiq_alive", "0.1.0"
 gem "trailblazer-rails", "~> 2.0"
 gem 'coffee-rails', '~> 4.2'

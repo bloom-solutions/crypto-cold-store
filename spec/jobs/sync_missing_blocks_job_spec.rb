@@ -10,6 +10,10 @@ RSpec.describe SyncMissingBlocksJob do
     expect(described_class.sidekiq_options["unique"]).to eq :until_executed
   end
 
+  it "logs on conflict" do
+    expect(described_class.sidekiq_options["on_conflict"]).to eq :log
+  end
+
   %w(btc eth).each do |coin|
     # NOTE: not all Block::COINS are synced, yet
     context "given the arg `#{coin}`" do
