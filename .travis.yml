@@ -8,3 +8,4 @@ rvm:
 before_script:
 - cp config/database.yml{.sample,}
 - bundle exec rake db:create db:test:prepare
+- yarn install
