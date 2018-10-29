@@ -25,11 +25,17 @@ module Btc
 
     def multisig_address(idx)
       keychains = xpub.map { |x| BTC::Keychain.new(extended_key: x) }
+      network = if keychains.map(&:network).first.name == "testnet3"
+                  "testnet"
+                else
+                  "mainnet"
+                end
       keys = keychains.map { |keychain| keychain.derived_key(idx) }
       public_keys = keys.map { |key| BTC.to_hex(key.public_key) }.sort
       command = [
         "node",
         Rails.root.join("lib", "address_gen.js"),
+        network,
         public_keys.join(","),
         signatures_required,
       ].join(" ")
