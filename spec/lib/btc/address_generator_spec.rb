@@ -62,7 +62,7 @@ module Btc
     end
 
     describe "#address" do
-      context "single extended key" do
+      context "single mainnet extended key" do
         let(:generator) { described_class.new(xpub: xpub) }
         let(:xpub) do
           "xpub6DY7Fqdz98GSsFDN96Levia3PwnREqhFER5RtKwiwrDzBJpEtGX5VcZdPrLgJriUfStunLmWYxrHM6XPygEJhrXZGrVh1fVZc2AQkAVPf9n"
@@ -75,7 +75,7 @@ module Btc
         end
       end
 
-      context "multiple extended keys" do
+      context "multiple mainnet extended keys" do
         let(:xpub) do
           # These are from Electrum
           mpks = [
@@ -95,6 +95,31 @@ module Btc
         it "generates an address at the given index for the required number of signatures" do
           expect(generator.address(0)).to eq "3GbE5Hn5NNfAbkk33AquoZqtoehkDDBEZn"
           expect(generator.address(18)).to eq "3CwgJ7iYBWufLpwgsGKikjEH5YL38CAfz3"
+        end
+      end
+
+      context "multiple testnet extended keys" do
+        let(:xpub) do
+          # These are from Electrum
+          mpks = [
+            "tpubDDSq2QfV6rux7jRPjw2yESiLA8ek9KG6XJCM9hbFtcNPHmoerZyufp1gB18VafXZ7zEwmARpvbV163mPL5rDkXuT3BVXhpmQoevfWMvVGF7",
+            "tpubDCoKUHyPJEeHpnNAmVXcCffAgpkzjbiMM3wqZf3WHqvKbwah4ySic2ZZvjp2RpfHo36T6qLesbzXz3rpmFzRnX953SexCmbWs28zjp3r1x3",
+            "tpubDC4n8o9cYGyQEqVVgSWiprN5ZAnkskPgbxonhxz63gjDbD8BrUX8rVvzTZ2Arb5RrUGasqNwggT4DUapZeGjctNxrSLAWf4BQvpMiwQiPxw",
+          ]
+          # but since we want the xpub of the receiving chain and not change
+          # chain...
+          mpks.map do |mpk|
+            BTC::Keychain.new(extended_key: mpk).derived_keychain("0").xpub
+          end
+        end
+        let(:generator) do
+          described_class.new(xpub: xpub, signatures_required: 2)
+        end
+
+        it "generates an address at the given index for the required number of signatures" do
+          # These are addresses for a 2 of 3 wallet
+          expect(generator.address(0)).to eq "2NE1rUpUH1E3aL27Y5AncSPAHxY3QowJPec"
+          expect(generator.address(11)).to eq "2Mw8uWLAsb8QUX57Ce6iMiF2EbhdMcc4UKW"
         end
       end
     end
