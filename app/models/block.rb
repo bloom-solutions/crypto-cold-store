@@ -4,6 +4,7 @@ class Block < ApplicationRecord
     btc: 0,
     ltc: 1,
     eth: 2,
+    xmr: 3,
   }
   enum coin: COINS
 
