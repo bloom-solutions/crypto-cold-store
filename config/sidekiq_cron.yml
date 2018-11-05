@@ -1,35 +1,41 @@
 refresh_btc_txs:
   cron: "*/10 * * * * *"
   class: "CheckTxsJob"
+  queue: "btc"
   args:
     - btc
 
 refresh_eth_txs:
   cron: "*/10 * * * * *"
   class: "CheckTxsJob"
+  queue: "eth"
   args:
     - eth
 
 sync_unconfirmed_btc_txs:
   cron: "*/5 * * * * *"
   class: "SyncUnconfirmedTxsJob"
+  queue: "btc"
   args:
     - "btc"
 
 sync_unconfirmed_eth_txs:
   cron: "*/5 * * * * *"
   class: "SyncUnconfirmedTxsJob"
+  queue: "eth"
   args:
     - "eth"
 
 sync_btc_missing_blocks:
   cron: "0 0 * * *"
   class: "SyncMissingBlocksJob"
+  queue: "btc"
   args:
     - "btc"
 
 sync_eth_missing_blocks:
   cron: "0 0 * * *"
   class: "SyncMissingBlocksJob"
+  queue: "eth"
   args:
     - "eth"
