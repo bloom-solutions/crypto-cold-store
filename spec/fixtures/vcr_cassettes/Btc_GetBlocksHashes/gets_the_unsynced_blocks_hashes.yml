@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bitcoin-testnet.bloomx.org/
+    uri: "[BITCOIND_HOST]/"
     body:
       encoding: UTF-8
       string: '[{"method":"getblockhash","params":[1443356],"id":"jsonrpc"},{"method":"getblockhash","params":[1443357],"id":"jsonrpc"}]'
