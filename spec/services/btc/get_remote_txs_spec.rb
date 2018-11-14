@@ -3,22 +3,24 @@ require 'rails_helper'
 module Btc
   RSpec.describe GetRemoteTxs do
 
-    context "remote block has txs" do
-      let(:remote_block) { { "tx" => [{"txid" => "abc"}] } }
-
-      it "sets the tx of the remote_block in the context" do
-        resulting_ctx = described_class.execute(remote_block: remote_block)
-        expect(resulting_ctx.remote_txs).to eq [{"txid" => "abc"}]
-      end
+    let(:bitcoiner_client) { InitBitcoinerClient.execute.bitcoiner_client }
+    let(:remote_blocks) do
+      [
+        { "tx" => [{"txid" => "1"}] },
+        { "tx" => [{"txid" => "2"}] }
+      ]
     end
 
-    context "remote block has no txs" do
-      let(:remote_block) { { "tx" => nil } }
+    it "sets remote_txs from remote_blocks" do
+      resulting_ctx = described_class.execute({
+        bitcoiner_client: bitcoiner_client,
+        remote_blocks: remote_blocks,
+      })
 
-      it "sets the tx of the remote_block in the context" do
-        resulting_ctx = described_class.execute(remote_block: remote_block)
-        expect(resulting_ctx.remote_txs).to be_empty
-      end
+      remote_txs = resulting_ctx.remote_txs
+
+      expect(remote_txs[0]["txid"]).to eq "1"
+      expect(remote_txs[1]["txid"]).to eq "2"
     end
 
   end

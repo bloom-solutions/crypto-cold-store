@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://bitcoin-testnet.bloomx.org/
+    body:
+      encoding: UTF-8
+      string: '[{"method":"getblockhash","params":[1443356],"id":"jsonrpc"},{"method":"getblockhash","params":[1443357],"id":"jsonrpc"}]'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+      Authorization:
+      - Basic cnBjdXNlcjp0aGlzaXNhcmVhbGx5bG9uZ3Bhc3N3b3JkZm9yc3Rlc3Rpbmc=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '214'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 14 Nov 2018 01:37:13 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"result":"000000000000006f7cef9ff5d73c81eec620a75a05856c4d1f2ad40e009fdfad","error":null,"id":"jsonrpc"},{"result":"000000000000009c184b9d16641b5fa81b9c917c29db56a2ccd9396be82992bb","error":null,"id":"jsonrpc"}]
+
+'
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 01:37:13 GMT
+recorded_with: VCR 4.0.0
