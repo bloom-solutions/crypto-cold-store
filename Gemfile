@@ -7,7 +7,7 @@ end
 
 gem "addressable", "~> 2.5"
 gem "bip44", "0.2.14"
-gem "bitcoiner", "0.1.3"
+gem "bitcoiner", github: "bloom-solutions/bitcoiner", branch: "all_features"
 gem "btcruby", github: "bloom-solutions/btcruby", branch: "bloom_changes"
 gem "dry-initializer", "~> 2.3"
 gem "dry-types" # required by reform coercion

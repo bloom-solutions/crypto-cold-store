@@ -11,8 +11,8 @@ module Btc
       [
         InitBitcoinerClient,
         GetRawMempoolTxIds,
-        iterate(:tx_ids, [
-          GetRemoteTx,
+        GetRemoteTxsFromTxIds,
+        iterate(:remote_txs, [
           GetRemoteTxOutputs,
           iterate(:remote_tx_outputs, [
             FindAddress,
