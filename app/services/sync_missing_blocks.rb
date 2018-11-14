@@ -9,14 +9,37 @@ class SyncMissingBlocks
   private
 
   def self.actions_for(coin)
-    coin_namespace = coin.classify.constantize
-    [
-      coin_namespace.const_get("SetBlocks"),
-      DetectBlockGaps,
-      iterate(:unsynced_blocks, [
-        coin_namespace.const_get("EnqueueSyncBlockJob"),
-      ])
-    ]
+    case coin
+    when "btc"
+      [
+        InitBitcoinerClient,
+        Btc::SetBlocks,
+        DetectBlockGaps,
+        Btc::GetBlocksHashes,
+        Btc::GetRemoteBlocks,
+        iterate(:remote_blocks, [
+          Btc::DeleteForkedBlock,
+          Btc::SaveBlockInfo,
+        ]),
+        Btc::GetRemoteBlocksTxs,
+        iterate(:remote_txs, [
+          Btc::GetRemoteTxOutputs,
+          iterate(:remote_tx_outputs, [
+            Btc::FindAddress,
+            Btc::SaveTxInfo,
+            NotifyTxReceipt,
+          ])
+        ])
+      ]
+    when "eth"
+      [
+        Eth::SetBlocks,
+        DetectBlockGaps,
+        iterate(:unsynced_blocks, [
+          Eth::EnqueueSyncBlockJob,
+        ])
+      ]
+    end
   end
 
 end
