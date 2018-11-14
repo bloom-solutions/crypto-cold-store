@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://bitcoin-testnet.bloomx.org/
+    body:
+      encoding: UTF-8
+      string: '[{"method":"getrawtransaction","params":["53c38b761f228332fa54a48697441be969eb727d48ab5c1b9f5dcec89bea2216",true],"id":"jsonrpc"},{"method":"getrawtransaction","params":["d0d9f56a9eff55c0b40a3fe696d080d9d900de9203bf2c3fc014e15756ce1a97",true],"id":"jsonrpc"}]'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+      Authorization:
+      - Basic cnBjdXNlcjp0aGlzaXNhcmVhbGx5bG9uZ3Bhc3N3b3JkZm9yc3Rlc3Rpbmc=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '4065'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 14 Nov 2018 02:34:46 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"result":{"txid":"53c38b761f228332fa54a48697441be969eb727d48ab5c1b9f5dcec89bea2216","hash":"b5913894150106a6af96884f0ae106e782aa242b7acd455ba43c4025b9c084f3","version":1,"size":247,"vsize":166,"locktime":0,"vin":[{"txid":"ddea02d535e9987291645bba27d3bc154a01b4a3e27a43a6afc640b45aeffad3","vout":1,"scriptSig":{"asm":"0014eb20738f7a9f7494c75677ed782e705edce52799","hex":"160014eb20738f7a9f7494c75677ed782e705edce52799"},"txinwitness":["30440220154037c4e164338f54b439d40ebd0f2ddee794587a0846549244a9969dff45a4022069e78c4d2f12f17b08ee7c6a51eb5979daea7869d640f439a387a986918fff3d01","03a70e94ba1f3abc1d51dc5c5ce21433c2e0390fc349f1e5e9b9408e545a009dfa"],"sequence":4294967295}],"vout":[{"value":0.32500000,"n":0,"scriptPubKey":{"asm":"OP_HASH160
+        c69534d1a4b473a8db800f24f2e62dac33fddaf1 OP_EQUAL","hex":"a914c69534d1a4b473a8db800f24f2e62dac33fddaf187","reqSigs":1,"type":"scripthash","addresses":["2NBMEXJZFSfts8yRq9fh36kJzgNCqVuuHWF"]}},{"value":25.80374497,"n":1,"scriptPubKey":{"asm":"OP_HASH160
+        bb8b8b69d44f3906a4861088da4f85fc555ec6c3 OP_EQUAL","hex":"a914bb8b8b69d44f3906a4861088da4f85fc555ec6c387","reqSigs":1,"type":"scripthash","addresses":["2NALsWtDeHHnVoMZpvsgkVgNja8pKnNfGFP"]}}],"hex":"01000000000101d3faef5ab440c6afa6437ae2a3b4014a15bcd327ba5b64917298e935d502eadd0100000017160014eb20738f7a9f7494c75677ed782e705edce52799ffffffff0220e9ef010000000017a914c69534d1a4b473a8db800f24f2e62dac33fddaf187e163cd990000000017a914bb8b8b69d44f3906a4861088da4f85fc555ec6c387024730440220154037c4e164338f54b439d40ebd0f2ddee794587a0846549244a9969dff45a4022069e78c4d2f12f17b08ee7c6a51eb5979daea7869d640f439a387a986918fff3d012103a70e94ba1f3abc1d51dc5c5ce21433c2e0390fc349f1e5e9b9408e545a009dfa00000000","blockhash":"000000000000022862a1920941f88e233e140247793b450d608bca968085b8b1","confirmations":151139,"time":1523408324,"blocktime":1523408324},"error":null,"id":"jsonrpc"},{"result":{"txid":"d0d9f56a9eff55c0b40a3fe696d080d9d900de9203bf2c3fc014e15756ce1a97","hash":"d0d9f56a9eff55c0b40a3fe696d080d9d900de9203bf2c3fc014e15756ce1a97","version":1,"size":287,"vsize":287,"locktime":1542126319,"vin":[{"txid":"49b19b3af04758d09e24330cca5ddc2db52ab9089342e0fcec9a7278af85c580","vout":0,"scriptSig":{"asm":"304402202bb879a1de95268fb06610aa9b6a28bbefe062bbaa8f0b343a885acc7e3d44e102207ff0dd8a05661f39c119849596b9e6b36e2ae57bc63387c5b6b60c18e25789d6[ALL]
+        03e494decbef2ea9eab8310b2afc92b0f24c2668656485660a8e143a28e999804b 0 63a820ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f8876a91483e5ca256c9ffd0ae019f98e4371e67ef5026d2d6704effaea5bb17576a91437d6f2c6da7bdad4ac3015c7dc733c26cb7bb4866888ac","hex":"47304402202bb879a1de95268fb06610aa9b6a28bbefe062bbaa8f0b343a885acc7e3d44e102207ff0dd8a05661f39c119849596b9e6b36e2ae57bc63387c5b6b60c18e25789d6012103e494decbef2ea9eab8310b2afc92b0f24c2668656485660a8e143a28e999804b004c5d63a820ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f8876a91483e5ca256c9ffd0ae019f98e4371e67ef5026d2d6704effaea5bb17576a91437d6f2c6da7bdad4ac3015c7dc733c26cb7bb4866888ac"},"sequence":0}],"vout":[{"value":0.00100000,"n":0,"scriptPubKey":{"asm":"OP_DUP
+        OP_HASH160 37d6f2c6da7bdad4ac3015c7dc733c26cb7bb486 OP_EQUALVERIFY OP_CHECKSIG","hex":"76a91437d6f2c6da7bdad4ac3015c7dc733c26cb7bb48688ac","reqSigs":1,"type":"pubkeyhash","addresses":["mkcCxUf5WieTXxPLrXBrbCrUxoWCn1tKyG"]}}],"hex":"010000000180c585af78729aecfce0429308b92ab52ddc5dca0c33249ed05847f03a9bb14900000000ca47304402202bb879a1de95268fb06610aa9b6a28bbefe062bbaa8f0b343a885acc7e3d44e102207ff0dd8a05661f39c119849596b9e6b36e2ae57bc63387c5b6b60c18e25789d6012103e494decbef2ea9eab8310b2afc92b0f24c2668656485660a8e143a28e999804b004c5d63a820ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f8876a91483e5ca256c9ffd0ae019f98e4371e67ef5026d2d6704effaea5bb17576a91437d6f2c6da7bdad4ac3015c7dc733c26cb7bb4866888ac0000000001a0860100000000001976a91437d6f2c6da7bdad4ac3015c7dc733c26cb7bb48688aceffaea5b","blockhash":"00000000000000f21e16f82b24ffd0ae346ab061bff1181c9bdd6ca0de35ae18","confirmations":3,"time":1542160827,"blocktime":1542160827},"error":null,"id":"jsonrpc"}]
+
+'
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 02:34:46 GMT
+recorded_with: VCR 4.0.0
