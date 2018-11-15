@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/bloom-solutions/bitcoiner.git
-  revision: 28b33b674f804b07ffa5e424985c65acda0fe3fd
-  branch: all_features
-  specs:
-    bitcoiner (0.1.3)
-      addressable
-      typhoeus (~> 1.3.0)
-
-GIT
   remote: https://github.com/bloom-solutions/btcruby.git
   revision: d0a7f0c9eca61c3e038bf16ca717d55e65155c12
   branch: bloom_changes
@@ -74,6 +65,9 @@ GEM
       money-tree
       rlp (~> 0.7.3)
     bip_mnemonic (0.0.2)
+    bitcoiner (0.1.4)
+      addressable
+      typhoeus (~> 1.3.0)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
@@ -188,7 +182,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -203,7 +197,7 @@ GEM
       ffi
     multi_json (1.13.1)
     nio4r (2.3.0)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
     pry (0.11.3)
@@ -388,7 +382,7 @@ PLATFORMS
 DEPENDENCIES
   addressable (~> 2.5)
   bip44 (= 0.2.14)
-  bitcoiner!
+  bitcoiner (= 0.1.4)
   btcruby!
   byebug
   capybara (~> 2.13)
