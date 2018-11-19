@@ -12,14 +12,7 @@ module Btc
         InitBitcoinerClient,
         GetRawMempoolTxIds,
         GetRemoteTxsFromTxIds,
-        iterate(:remote_txs, [
-          GetRemoteTxOutputs,
-          iterate(:remote_tx_outputs, [
-            FindAddress,
-            SaveTxInfo,
-            NotifyTxReceipt,
-          ])
-        ]),
+        ProcessRemoteTxs,
         DeleteDroppedUnconfirmedTxs,
       ]
     end

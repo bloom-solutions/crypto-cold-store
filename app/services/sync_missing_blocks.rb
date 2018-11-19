@@ -22,14 +22,7 @@ class SyncMissingBlocks
           Btc::SaveBlockInfo,
         ]),
         Btc::GetRemoteBlocksTxs,
-        iterate(:remote_txs, [
-          Btc::GetRemoteTxOutputs,
-          iterate(:remote_tx_outputs, [
-            Btc::FindAddress,
-            Btc::SaveTxInfo,
-            NotifyTxReceipt,
-          ])
-        ])
+        Btc::ProcessRemoteTxs,
       ]
     when "eth"
       [
