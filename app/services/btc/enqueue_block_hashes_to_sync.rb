@@ -3,7 +3,9 @@ module Btc
 
     extend LightService::Action
     expects :block_hashes
-    SLICE = 5.freeze
+    SLICE =
+      (ENV["BTC_BLOCK_SYNC_SLICE_SIZE"].presence || GetBlocksToSync::MAX_CONFS)
+      .to_i.freeze
 
     executed do |c|
       c.block_hashes.each_slice(SLICE) do |block_hashes|
