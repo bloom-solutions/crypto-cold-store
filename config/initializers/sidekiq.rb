@@ -23,4 +23,11 @@ Sidekiq.configure_server do |config|
   config.options[:job_logger] = CustomSidekiqJobLogger
 end
 
+Sidekiq.configure_server do |config|
+  config.death_handlers << ->(job, _ex) do
+    unique_digest = job['unique_digest']
+    SidekiqUniqueJobs::Digests.del(digest: unique_digest) if unique_digest
+  end
+end
+
 SidekiqAlive.start
