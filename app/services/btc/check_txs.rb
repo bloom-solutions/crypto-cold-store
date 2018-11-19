@@ -14,20 +14,7 @@ module Btc
         GetCurrentBlock,
         GetBlocksToSync,
         GetBlocksHashes,
-        GetRemoteBlocks,
-        iterate(:remote_blocks, [
-          DeleteForkedBlock,
-          SaveBlockInfo,
-        ]),
-        GetRemoteBlocksTxs,
-        iterate(:remote_txs, [
-          GetRemoteTxOutputs,
-          iterate(:remote_tx_outputs, [
-            FindAddress,
-            SaveTxInfo,
-            NotifyTxReceipt,
-          ])
-        ])
+        EnqueueBlockHashesToSync,
       ]
     end
 
