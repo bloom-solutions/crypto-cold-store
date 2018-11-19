@@ -23,14 +23,14 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Nov 2018 03:01:29 GMT
+      - Mon, 19 Nov 2018 13:22:20 GMT
     body:
       encoding: UTF-8
       string: '[{"result":"00000000000000dfbbe02b6ca7712e19f422e46c2fd418da5751ea10b68ffbd7","error":null,"id":"jsonrpc"}]
 
 '
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 03:01:29 GMT
+  recorded_at: Mon, 19 Nov 2018 13:22:20 GMT
 - request:
     method: post
     uri: "[BITCOIND_HOST]/"
@@ -50,14 +50,14 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '38152'
+      - '38154'
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Nov 2018 03:01:29 GMT
+      - Mon, 19 Nov 2018 13:22:20 GMT
     body:
       encoding: UTF-8
-      string: '[{"result":{"hash":"00000000000000dfbbe02b6ca7712e19f422e46c2fd418da5751ea10b68ffbd7","confirmations":8,"strippedsize":3706,"size":5714,"weight":16832,"height":1443362,"version":1073676288,"versionHex":"3fff0000","merkleroot":"8ccc70ebcfd42d6e12a5e165c5e62c60099472565fe5654fa89bef73adabaf0b","tx":[{"txid":"aeb69367e0662fd0e0ef38c44e83b526f2f2637861531e958291bde4ae471f0d","hash":"079f667f2849ee6cf337e745a6e4a29eb8f5e655a24a01ae18297b8be608b80f","version":2,"size":200,"vsize":173,"locktime":0,"vin":[{"coinbase":"0322061604a27deb5b44434578706c6f726174696f6e09000015e008000000000000","sequence":4294967295}],"vout":[{"value":0.79089718,"n":0,"scriptPubKey":{"asm":"OP_HASH160
+      string: '[{"result":{"hash":"00000000000000dfbbe02b6ca7712e19f422e46c2fd418da5751ea10b68ffbd7","confirmations":726,"strippedsize":3706,"size":5714,"weight":16832,"height":1443362,"version":1073676288,"versionHex":"3fff0000","merkleroot":"8ccc70ebcfd42d6e12a5e165c5e62c60099472565fe5654fa89bef73adabaf0b","tx":[{"txid":"aeb69367e0662fd0e0ef38c44e83b526f2f2637861531e958291bde4ae471f0d","hash":"079f667f2849ee6cf337e745a6e4a29eb8f5e655a24a01ae18297b8be608b80f","version":2,"size":200,"vsize":173,"locktime":0,"vin":[{"coinbase":"0322061604a27deb5b44434578706c6f726174696f6e09000015e008000000000000","sequence":4294967295}],"vout":[{"value":0.79089718,"n":0,"scriptPubKey":{"asm":"OP_HASH160
         e0725ef08b0046fd2df3c58d5fefc5580e1f59de OP_EQUAL","hex":"a914e0725ef08b0046fd2df3c58d5fefc5580e1f59de87","reqSigs":1,"type":"scripthash","addresses":["2NDhzMt2D9ZxXapbuq567WGeWP7NuDN81cg"]}},{"value":0.00000000,"n":1,"scriptPubKey":{"asm":"OP_RETURN
         aa21a9ed33879dcddb84d292178b9e72bb9cb2d481686f3ff968a9246968079da434908c","hex":"6a24aa21a9ed33879dcddb84d292178b9e72bb9cb2d481686f3ff968a9246968079da434908c","type":"nulldata"}}],"hex":"020000000001010000000000000000000000000000000000000000000000000000000000000000ffffffff220322061604a27deb5b44434578706c6f726174696f6e09000015e008000000000000ffffffff0236d0b6040000000017a914e0725ef08b0046fd2df3c58d5fefc5580e1f59de870000000000000000266a24aa21a9ed33879dcddb84d292178b9e72bb9cb2d481686f3ff968a9246968079da434908c0120000000000000000000000000000000000000000000000000000000000000000000000000"},{"txid":"0f0bd99f20270a885ec3ea1c08d9b50e55c5d597a237653607f25c92d7a032de","hash":"0f0bd99f20270a885ec3ea1c08d9b50e55c5d597a237653607f25c92d7a032de","version":2,"size":271,"vsize":271,"locktime":0,"vin":[{"txid":"29b1d30d5d380bf60dddfbd489f0e6984e3af08035df011bca9b93c99408811d","vout":1,"scriptSig":{"asm":"304402206e3e07ea01613de74ebd11c361e88819e778ce0291cdbf5e13ca19c7452a6be8022064e341ba24232806d7be6576fad66f35b55481a6c3e5a773581e9cca35a2e8fe[ALL]
         03f0937a3abc7cf55ee7ede5ecc2a5d8665f4e0f56bf20b4e2bb9a99b2023326f7","hex":"47304402206e3e07ea01613de74ebd11c361e88819e778ce0291cdbf5e13ca19c7452a6be8022064e341ba24232806d7be6576fad66f35b55481a6c3e5a773581e9cca35a2e8fe012103f0937a3abc7cf55ee7ede5ecc2a5d8665f4e0f56bf20b4e2bb9a99b2023326f7"},"sequence":4294967295}],"vout":[{"value":0.00000000,"n":0,"scriptPubKey":{"asm":"OP_RETURN
@@ -108,5 +108,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 03:01:29 GMT
+  recorded_at: Mon, 19 Nov 2018 13:22:20 GMT
 recorded_with: VCR 4.0.0
