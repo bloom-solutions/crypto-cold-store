@@ -29,5 +29,3 @@ Sidekiq.configure_server do |config|
     SidekiqUniqueJobs::Digests.del(digest: unique_digest) if unique_digest
   end
 end
-
-SidekiqAlive.start
