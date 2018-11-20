@@ -17,14 +17,7 @@ module Btc
           SaveBlockInfo,
         ]),
         GetRemoteBlocksTxs,
-        iterate(:remote_txs, [
-          GetRemoteTxOutputs,
-          iterate(:remote_tx_outputs, [
-            FindAddress,
-            SaveTxInfo,
-            NotifyTxReceipt,
-          ])
-        ])
+        ProcessRemoteTxs,
       ]
     end
 
