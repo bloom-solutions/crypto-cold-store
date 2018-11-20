@@ -9,20 +9,21 @@ module Btc
       with(ctx).reduce(actions)
     end
 
-    executed do |c|
-      self.(c)
-    end
-
     def self.actions
-      iterate(:remote_txs, [
-        GetRemoteTxOutputs,
-        iterate(:remote_tx_outputs, [
-          GetRemoteTxOutputAddresses,
-          FindAddress,
-          SaveTxInfo,
-          NotifyTxReceipt,
-        ])
-      ])
+      [
+        GetOutputAddresses,
+        reduce_if(->(c) { Address.where(address: c.output_addresses).any? }, [
+          iterate(:remote_txs, [
+            GetRemoteTxOutputs,
+            iterate(:remote_tx_outputs, [
+              GetRemoteTxOutputAddresses,
+              FindAddress,
+              SaveTxInfo,
+              NotifyTxReceipt,
+            ])
+          ])
+        ]),
+      ]
     end
 
   end
