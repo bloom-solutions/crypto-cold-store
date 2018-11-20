@@ -11,8 +11,7 @@ module Btc
       [
         InitBitcoinerClient,
         GetRawMempoolTxIds,
-        GetRemoteTxsFromTxIds,
-        ProcessRemoteTxs,
+        ProcessTxIds,
         DeleteDroppedUnconfirmedTxs,
       ]
     end
