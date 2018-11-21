@@ -24,5 +24,20 @@ module Btc
         to eq "eb4f4334a830a7cb9587e781a493109605f12109f4cc2bd65f4cde1c9f0b4953"
     end
 
+    context "call to bitcoin fails or circuit is open" do
+      it "skips the rest of the actions" do
+        expect(client).to receive(:request)
+          .and_raise(Bitcoiner::Client::JSONRPCError)
+
+        resulting_ctx = described_class.execute(
+          block_hashes: ["0000"],
+          bitcoiner_client: client,
+        )
+
+        expect(resulting_ctx).to be_failure
+        expect(resulting_ctx).to be_stop_processing
+      end
+    end
+
   end
 end
