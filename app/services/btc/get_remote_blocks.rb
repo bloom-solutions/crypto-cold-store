@@ -15,6 +15,10 @@ module Btc
         c.bitcoiner_client.request(args)
       end
 
+      if response.nil?
+        c.fail_and_return!("bitcoind call failed or circuit open")
+      end
+
       c.remote_blocks = response.map { |hash| hash["result"] }
     end
 
