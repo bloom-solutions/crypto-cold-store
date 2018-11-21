@@ -16,7 +16,7 @@ module Eth
 
     def self.geth_circuit
       Circuitbox.circuit(:geth_circuit, {
-        exceptions: [EOFError],
+        exceptions: [EOFError, Net::ReadTimeout],
       })
     end
 
