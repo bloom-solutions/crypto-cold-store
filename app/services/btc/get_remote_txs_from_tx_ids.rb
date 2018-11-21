@@ -9,7 +9,7 @@ module Btc
     executed do |c|
       args = c.tx_ids.map { |tx_id| ["getrawtransaction", [tx_id, VERBOSE]] }
       response = c.bitcoiner_client.request(args)
-      c.remote_txs = response.map { |r| r["result"] }
+      c.remote_txs = response.map { |r| r["result"] }.compact
     end
 
   end
