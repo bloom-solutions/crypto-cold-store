@@ -5,16 +5,19 @@ module Btc
 
     let(:client) { InitBitcoinerClient.execute.bitcoiner_client }
 
-    it "returns the blocks with all their txs", vcr: {record: :once} do
+    it "returns the blocks with all their txs, removing nil", vcr: {record: :once} do
       resulting_ctx = described_class.execute(
         block_hashes: [
           "000000000000006f7cef9ff5d73c81eec620a75a05856c4d1f2ad40e009fdfad",
           "000000000000009c184b9d16641b5fa81b9c917c29db56a2ccd9396be82992bb",
+          "abc",
         ],
         bitcoiner_client: client,
       )
 
       remote_blocks = resulting_ctx.remote_blocks
+      expect(remote_blocks.size).to eq 2
+
       expect(remote_blocks[0]["tx"]).to_not be_empty
       expect(remote_blocks[0]["tx"].first["txid"]).
         to eq "abb5a6c6a6fce9f292376ed87c3669894cdede05729e4475617fc9f5189a7d47"

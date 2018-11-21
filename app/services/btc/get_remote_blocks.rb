@@ -19,7 +19,7 @@ module Btc
         c.fail_and_return!("bitcoind call failed or circuit open")
       end
 
-      c.remote_blocks = response.map { |hash| hash["result"] }
+      c.remote_blocks = response.map { |hash| hash["result"] }.compact
     end
 
     def self.bitcoind_circuit
