@@ -1,6 +1,6 @@
 ---
 :concurrency: <%= ENV["SIDEKIQ_CONCURRENCY"] || 10 %>
 :queues:
-  - default
-  - btc
-  - eth
+  - [btc, 1]
+  - [eth, 1]
+  - [default, 1]
