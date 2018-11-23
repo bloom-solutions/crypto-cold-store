@@ -53,7 +53,7 @@ end
 
 group :test do
   gem "rspec-sidekiq"
-  gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers" # for `optional`
+  gem "shoulda-matchers", "4.0.0.rc1"
   gem "timecop"
   gem "vcr"
   gem "webmock"
