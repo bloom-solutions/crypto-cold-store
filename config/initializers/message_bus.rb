@@ -5,6 +5,13 @@ else
     backend: :postgres,
     backend_options: ENV["MESSAGE_BUS_PG_CONNECTION_STRING"],
     clear_every: 1_000,
+    on_middleware_error: proc do |env, e|
+      if Errno::EPIPE === e
+        [422, {}, [""]]
+      else
+        raise e
+      end
+    end
   })
 
   # 10 days in seconds
