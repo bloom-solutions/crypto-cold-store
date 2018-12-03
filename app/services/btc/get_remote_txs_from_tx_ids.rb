@@ -8,8 +8,22 @@ module Btc
 
     executed do |c|
       args = c.tx_ids.map { |tx_id| ["getrawtransaction", [tx_id, VERBOSE]] }
-      response = c.bitcoiner_client.request(args)
+
+      response = bitcoind_circuit.run do
+        c.bitcoiner_client.request(args)
+      end
+
+      if response.nil?
+        c.fail_and_return!("bitcoind call failed or circuit open")
+      end
+
       c.remote_txs = response.map { |r| r["result"] }.compact
+    end
+
+    def self.bitcoind_circuit
+      Circuitbox.circuit(:bitcoind, {
+        exceptions: [Bitcoiner::Client::JSONRPCError],
+      })
     end
 
   end
