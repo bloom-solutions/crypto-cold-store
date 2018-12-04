@@ -4,6 +4,7 @@ class GethCircuit < ApplicationCircuit
     EOFError,
     Net::ReadTimeout,
     Errno::EHOSTUNREACH,
+    SocketError,
   ].freeze
 
   def self.call
