@@ -10,7 +10,9 @@ module Btc
         ["getblockhash", [block_height]]
       end
 
-      response = c.bitcoiner_client.request(args)
+      response = BitcoindCircuit.run_on_context(c) do
+        c.bitcoiner_client.request(args)
+      end
 
       c.block_hashes = response.map { |hash| hash["result"] }
     end

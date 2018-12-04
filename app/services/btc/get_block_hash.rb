@@ -6,9 +6,9 @@ module Btc
     promises :block_hash
 
     executed do |c|
-      c.block_hash = of_height(c.block_height, {
-        bitcoiner_client: c.bitcoiner_client,
-      })
+      c.block_hash = BitcoindCircuit.run_on_context(c) do
+        of_height(c.block_height, bitcoiner_client: c.bitcoiner_client)
+      end
     end
 
     def self.of_height(
