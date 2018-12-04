@@ -2,8 +2,11 @@ class GethCircuit < ApplicationCircuit
 
   EXCEPTIONS = [
     EOFError,
-    Net::ReadTimeout,
+    Errno::ECONNREFUSED,
     Errno::EHOSTUNREACH,
+    Net::OpenTimeout,
+    Net::ReadTimeout,
+    SocketError,
   ].freeze
 
   def self.call
