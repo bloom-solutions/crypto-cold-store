@@ -7,8 +7,9 @@ module Btc
     VERBOSITY = 2
 
     executed do |c|
-      c.remote_block = c.bitcoiner_client.
-        request("getblock", c.block_hash, VERBOSITY)
+      c.remote_block = BitcoindCircuit.run_on_context(c) do
+        c.bitcoiner_client.request("getblock", c.block_hash, VERBOSITY)
+      end
     end
 
   end

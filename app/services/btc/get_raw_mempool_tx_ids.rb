@@ -7,7 +7,9 @@ module Btc
     VERBOSE = false
 
     executed do |c|
-      c.tx_ids = c.bitcoiner_client.request("getrawmempool", VERBOSE)
+      c.tx_ids = BitcoindCircuit.run_on_context(c) do
+        c.bitcoiner_client.request("getrawmempool", VERBOSE)
+      end
     end
 
   end

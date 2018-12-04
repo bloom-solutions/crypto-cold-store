@@ -11,21 +11,11 @@ module Btc
         ["getblock", [block_hash, VERBOSITY]]
       end
 
-      response = bitcoind_circuit.run do
+      response = BitcoindCircuit.run_on_context(c) do
         c.bitcoiner_client.request(args)
       end
 
-      if response.nil?
-        c.fail_and_return!("bitcoind call failed or circuit open")
-      end
-
       c.remote_blocks = response.map { |hash| hash["result"] }.compact
-    end
-
-    def self.bitcoind_circuit
-      Circuitbox.circuit(:bitcoind, {
-        exceptions: [Bitcoiner::Client::JSONRPCError],
-      })
     end
 
   end

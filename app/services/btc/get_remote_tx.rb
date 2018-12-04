@@ -7,8 +7,9 @@ module Btc
     VERBOSE = true
 
     executed do |c|
-      c.remote_tx = c.bitcoiner_client.
-        request("getrawtransaction", c.tx_id, VERBOSE)
+      c.remote_tx = BitcoindCircuit.run_on_context(c) do
+        c.bitcoiner_client.request("getrawtransaction", c.tx_id, VERBOSE)
+      end
     end
 
   end
