@@ -6,8 +6,11 @@ module Eth
     promises :remote_block
 
     executed do |c|
-      c.remote_block = c.ethereum_client.
-        eth_get_block_by_number(c.block_height, true)["result"]
+      response = GethCircuit.run_on_context(c) do
+        c.ethereum_client.eth_get_block_by_number(c.block_height, true)
+      end
+
+      c.remote_block = response["result"]
     end
 
   end
