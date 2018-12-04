@@ -19,7 +19,11 @@ module Btc
             AppendOutputAddress,
           ])
         ]),
-        reduce_if(->(c) { Address.where(address: c[:output_addresses]).any? }, [
+        reduce_if(->(c) {
+          PgCircuit.run_on_context(c) do
+            Address.where(address: c[:output_addresses]).any?
+          end
+        }, [
           iterate(:remote_txs, [
             GetRemoteTxOutputs,
             iterate(:remote_tx_outputs, [

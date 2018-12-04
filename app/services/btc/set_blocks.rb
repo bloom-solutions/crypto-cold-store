@@ -5,7 +5,9 @@ module Btc
     promises :blocks
 
     executed do |c|
-      c.blocks = Block.btc
+      c.blocks = PgCircuit.run_on_context(c) do
+        Block.btc
+      end
     end
 
   end

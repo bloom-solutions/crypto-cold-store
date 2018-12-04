@@ -11,12 +11,14 @@ module Btc
         with_confirmations_less_than(MAX_CONFS).
         order(height: :asc)
 
-      if block = insufficiently_confirmed_blocks.first
-        c.unsynced_blocks = Array(block.height..c.current_block_number)
-      elsif block = c.blocks.order(height: :asc).last
-        c.unsynced_blocks = (block.height..c.current_block_number).to_a
-      else
-        c.unsynced_blocks = Array(c.current_block_number)
+      PgCircuit.run_on_context(c) do
+        if block = insufficiently_confirmed_blocks.first
+          c.unsynced_blocks = Array(block.height..c.current_block_number)
+        elsif block = c.blocks.order(height: :asc).last
+          c.unsynced_blocks = (block.height..c.current_block_number).to_a
+        else
+          c.unsynced_blocks = Array(c.current_block_number)
+        end
       end
     end
 

@@ -5,7 +5,9 @@ module Eth
     promises :blocks
 
     executed do |c|
-      c.blocks = Block.eth
+      c.blocks = PgCircuit.run_on_context(c) do
+        Block.eth
+      end
     end
 
   end
