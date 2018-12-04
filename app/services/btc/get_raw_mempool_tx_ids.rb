@@ -8,7 +8,7 @@ module Btc
 
     executed do |c|
       c.tx_ids = BitcoindCircuit.run_on_context(c) do
-        c.bitcoiner_client.request("getrawmempool", VERBOSE)
+        c.bitcoiner_client.request("getrawmempool", VERBOSE) || []
       end
     end
 
