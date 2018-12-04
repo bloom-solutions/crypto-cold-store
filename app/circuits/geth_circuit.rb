@@ -6,6 +6,7 @@ class GethCircuit < ApplicationCircuit
     Errno::EHOSTUNREACH,
     SocketError,
     Net::OpenTimeout,
+    Errno::ECONNREFUSED,
   ].freeze
 
   def self.call
