@@ -4,7 +4,6 @@ class GethCircuit < ApplicationCircuit
     EOFError,
     Net::ReadTimeout,
     Errno::EHOSTUNREACH,
-    PG::ConnectionBad,
   ].freeze
 
   def self.call
