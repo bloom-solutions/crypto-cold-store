@@ -13,5 +13,14 @@ module Btc
       expect(tx_ids.first).to be_a String
     end
 
+    it "defaults to an empty array" do
+      expect(bitcoiner_client).to receive(:request).and_return(nil)
+
+      resulting_ctx = described_class.execute(bitcoiner_client: bitcoiner_client)
+      tx_ids = resulting_ctx.tx_ids
+
+      expect(tx_ids).to be_empty
+    end
+
   end
 end
