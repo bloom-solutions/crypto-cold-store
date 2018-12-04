@@ -6,18 +6,11 @@ module Eth
     promises :remote_txs
 
     executed do |c|
-      c.remote_txs = geth_circuit.run do
-        c.ethereum_client.txpool_content["result"]["pending"].
-          values.map(&:values).flatten
+      response = GethCircuit.run_on_context(c) do
+        c.ethereum_client.txpool_content
       end
 
-      c.fail_and_return! "Unable to fetch txpool content" if c.remote_txs.nil?
-    end
-
-    def self.geth_circuit
-      Circuitbox.circuit(:geth_circuit, {
-        exceptions: [EOFError, Net::ReadTimeout],
-      })
+      c.remote_txs = response["result"]["pending"].values.map(&:values).flatten
     end
 
   end
