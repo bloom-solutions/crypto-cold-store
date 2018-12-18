@@ -14,6 +14,11 @@ RSpec.describe CheckTxsJob do
     expect(described_class.sidekiq_options["on_conflict"]).to eq :log
   end
 
+  it "expires the lock automatically" do
+    expect(described_class.sidekiq_options["lock_expiration"]).
+      to eq 1.minutes
+  end
+
   %w(btc eth).each do |coin|
     # NOTE: not all Block::COINS are synced, yet
     context "given the arg #{coin}" do

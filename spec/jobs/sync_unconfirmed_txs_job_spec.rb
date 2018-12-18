@@ -14,6 +14,11 @@ require 'rails_helper'
       expect(described_class.sidekiq_options["on_conflict"]).to eq :log
     end
 
+    it "expires the lock automatically" do
+      expect(described_class.sidekiq_options["lock_expiration"]).
+        to eq 1.minutes
+    end
+
     # Not all coins in Block::COINS are synced, yet
     %w(btc eth).each do |coin|
       context "given arg of #{coin}" do
