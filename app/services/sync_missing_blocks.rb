@@ -13,7 +13,7 @@ class SyncMissingBlocks
     when "btc"
       [
         InitBitcoinerClient,
-        execute(->(c) {c[:blocks] = Block.btc}),
+        Btc::SetBlocks,
         DetectBlockGaps,
         Btc::GetBlocksHashes,
         Btc::GetRemoteBlocks,
@@ -26,7 +26,7 @@ class SyncMissingBlocks
       ]
     when "eth"
       [
-        execute(->(c) {c[:blocks] = Block.eth}),
+        Eth::SetBlocks,
         DetectBlockGaps,
         iterate(:unsynced_blocks, [
           Eth::EnqueueSyncBlockJob,
