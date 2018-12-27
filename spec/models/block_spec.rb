@@ -25,6 +25,21 @@ RSpec.describe Block do
     end
   end
 
+  describe ".with_confirmations_greater_than_or_equal_to" do
+    let!(:block_1) { create(:block, confirmations: 11) }
+    let!(:block_2) { create(:block, confirmations: 10) }
+    let!(:block_3) { create(:block, confirmations: 9) }
+
+    it "returns blocks with confirmations less than the given number" do
+      expect(described_class.with_confirmations_greater_than_or_equal_to(12)).
+        to be_empty
+      expect(described_class.with_confirmations_greater_than_or_equal_to(11)).
+        to match_array([block_1])
+      expect(described_class.with_confirmations_greater_than_or_equal_to(10)).
+        to match_array([block_1, block_2])
+    end
+  end
+
   describe ".with_height_greater_than_or_equal_to" do
     let!(:block_1) { create(:block, height: 12) }
     let!(:block_2) { create(:block, height: 11) }
