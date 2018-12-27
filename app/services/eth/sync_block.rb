@@ -11,6 +11,7 @@ module Eth
       [
         InitEthereumClient,
         SetBlocks,
+        CheckConfirmations,
         GetCurrentBlock,
         GetRemoteBlock,
         DeleteForkedBlock,
