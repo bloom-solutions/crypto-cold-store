@@ -14,6 +14,11 @@ class Block < ApplicationRecord
     where(confirmations.lt(n))
   end
 
+  scope :with_confirmations_greater_than_or_equal_to, ->(n) do
+    confirmations = arel_table[:confirmations]
+    where(confirmations.gteq(n))
+  end
+
   scope :with_height_greater_than_or_equal_to, ->(height) do
     where(arel_table[:height].gteq(height))
   end

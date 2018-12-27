@@ -11,6 +11,7 @@ module Btc
       [
         InitBitcoinerClient,
         SetBlocks,
+        FilterBlockHashes,
         GetRemoteBlocks,
         iterate(:remote_blocks, [
           DeleteForkedBlock,
