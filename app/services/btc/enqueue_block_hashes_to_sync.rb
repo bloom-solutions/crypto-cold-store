@@ -4,7 +4,7 @@ module Btc
     extend LightService::Action
     expects :block_hashes
     SLICE =
-      (ENV["BTC_BLOCK_SYNC_SLICE_SIZE"].presence || GetBlocksToSync::MAX_CONFS)
+      (ENV["BTC_BLOCK_SYNC_SLICE_SIZE"].presence || SetBlocks::MAX_CONFS)
       .to_i.freeze
 
     executed do |c|

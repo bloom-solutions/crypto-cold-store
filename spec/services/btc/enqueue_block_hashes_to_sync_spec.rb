@@ -3,7 +3,7 @@ require 'rails_helper'
 module Btc
   RSpec.describe EnqueueBlockHashesToSync do
 
-    let(:block_hashes_count) { GetBlocksToSync::MAX_CONFS + 1 }
+    let(:block_hashes_count) { SetBlocks::MAX_CONFS + 1 }
     let(:block_hashes) { block_hashes_count.times.map { |n| "h#{n}" } }
 
     it "enqueues block hashes in blocks of #{described_class::SLICE}" do
