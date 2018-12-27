@@ -26,11 +26,7 @@ module Btc
       subject { resulting_ctx.unsynced_blocks }
 
       before do
-        create(:block, {
-          coin: "btc",
-          height: 20,
-          confirmations: described_class::MAX_CONFS,
-        })
+        create(:block, coin: "btc", height: 20)
       end
 
       it "is an array of unknown blocks up to the current_block_number" do
@@ -49,26 +45,10 @@ module Btc
       subject { resulting_ctx.unsynced_blocks }
 
       before do
-        create(:block, {
-          coin: "eth",
-          height: 22,
-          confirmations: described_class::MAX_CONFS,
-        })
-        create(:block, {
-          coin: "btc",
-          height: 20,
-          confirmations: described_class::MAX_CONFS - 1,
-        })
-        create(:block, {
-          coin: "btc",
-          height: 21,
-          confirmations: described_class::MAX_CONFS - 2,
-        })
-        create(:block, {
-          coin: "btc",
-          height: 22,
-          confirmations: described_class::MAX_CONFS,
-        })
+        create(:block, coin: "eth", height: 22)
+        create(:block, coin: "btc", height: 20)
+        create(:block, coin: "btc", height: 21)
+        create(:block, coin: "btc", height: 22)
       end
 
       it "is an array from earliest block with insufficient confs up to the current_block_number" do

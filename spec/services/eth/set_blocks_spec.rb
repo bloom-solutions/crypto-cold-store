@@ -5,7 +5,9 @@ module Eth
 
     it "sets blocks to eth blocks" do
       resulting_ctx = described_class.execute
-      expect(resulting_ctx.blocks.to_sql).to eq Block.eth.to_sql
+      expected_sql = Block.eth.
+        with_confirmations_less_than(described_class::MAX_CONFS).to_sql
+      expect(resulting_ctx.blocks.to_sql).to eq expected_sql
     end
 
   end

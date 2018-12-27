@@ -5,25 +5,13 @@ module Eth
 
     context "there are known ethereum txs" do
       let!(:block_eth_2) do
-        create(:block, {
-          coin: "eth",
-          height: 2,
-          confirmations: described_class::MAX_CONFS,
-        })
+        create(:block, coin: "eth", height: 2)
       end
       let!(:block_eth_3) do
-        create(:block, {
-          coin: "eth",
-          height: 3,
-          confirmations: described_class::MAX_CONFS-1,
-        })
+        create(:block, coin: "eth", height: 3)
       end
       let!(:block_eth_5) do
-        create(:block, {
-          coin: "eth",
-          height: 5,
-          confirmations: described_class::MAX_CONFS-1,
-        })
+        create(:block, coin: "eth", height: 5)
       end
 
       it "sets unsynced_blocks to include earliest insufficiently confirmed block until the current block number" do
@@ -31,7 +19,7 @@ module Eth
           current_block_number: 7,
           blocks: Block.eth,
         )
-        expected_unsynced_blocks = 3..7
+        expected_unsynced_blocks = 2..7
         expect(resulting_ctx.unsynced_blocks).
           to match_array(expected_unsynced_blocks)
       end
