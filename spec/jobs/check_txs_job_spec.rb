@@ -16,7 +16,7 @@ RSpec.describe CheckTxsJob do
 
   it "expires the lock automatically" do
     expect(described_class.sidekiq_options["lock_expiration"]).
-      to eq 1.minutes
+      to eq 2.minutes
   end
 
   %w(btc eth).each do |coin|
