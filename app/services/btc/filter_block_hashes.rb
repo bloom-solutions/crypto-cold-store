@@ -11,9 +11,7 @@ module Btc
       sufficiently_confirmed_block_hashes = sufficiently_confirmed_blocks.
         pluck(:block_hash)
 
-      c.block_hashes = c.block_hashes.reject do |block_hash|
-        sufficiently_confirmed_block_hashes.include?(block_hash)
-      end
+      c.block_hashes = c.block_hashes - sufficiently_confirmed_block_hashes
     end
 
   end
