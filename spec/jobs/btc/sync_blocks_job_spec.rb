@@ -11,8 +11,8 @@ module Btc
       expect(described_class.sidekiq_options["unique"]).to eq :until_executed
     end
 
-    it "logs on conflict" do
-      expect(described_class.sidekiq_options["on_conflict"]).to eq :log
+    it "expires the lock" do
+      expect(described_class.sidekiq_options["lock_expiration"]).to eq 2.minutes
     end
 
     it "delegates work to SyncBlocks" do
