@@ -4,7 +4,7 @@ cache: bundler
 addons:
   postgresql: '9.6'
 rvm:
-- 2.5.0
+- 2.5.3
 before_script:
 - cp config/database.yml{.sample,}
 - bundle exec rake db:create db:test:prepare
