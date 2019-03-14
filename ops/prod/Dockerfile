@@ -1,4 +1,4 @@
-FROM ruby:2.5.0
+FROM ruby:2.5.3
 MAINTAINER Ramon Tayag <ramon.tayag@gmail.com>
 
 RUN apt-get update -qq && \
