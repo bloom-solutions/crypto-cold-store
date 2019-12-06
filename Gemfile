@@ -27,7 +27,7 @@ gem "sidekiq_alive", "~> 1.0"
 gem "trailblazer-rails", "~> 2.0"
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 5.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
