@@ -8,6 +8,7 @@ module DepositDetails
           MIN = {
             btc: 0.00001,
             eth: 0.00001,
+            xmr: 0.00001,
           }.with_indifferent_access
 
           step :init_model!

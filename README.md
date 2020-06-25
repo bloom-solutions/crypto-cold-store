@@ -11,6 +11,7 @@ Crypto Cold Store is an open-source solution for cryptocurrency cold storage. It
 
 - [Bitcoin](docs/bitcoin.md)
 - [Ethereum](docs/ethereum.md)
+- [Monero](docs/monero.md)
 
 ## Generating Addresses
 
