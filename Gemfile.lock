@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/bloom-solutions/btcruby.git
-  revision: d0a7f0c9eca61c3e038bf16ca717d55e65155c12
+  revision: eb70f7b9c19fe53b90e5c0c6c801abda750912f4
   branch: bloom_changes
   specs:
-    btcruby (1.7)
+    btcruby (1.8)
       ffi (~> 1.9, >= 1.9.3)
 
 GEM
@@ -159,7 +159,7 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
-    ffi (1.9.25)
+    ffi (1.13.1)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
