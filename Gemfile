@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.6.3"
-
 gem "addressable", "~> 2.5"
 gem "bip44", "0.2.14"
 gem "bitcoiner", "0.1.4"

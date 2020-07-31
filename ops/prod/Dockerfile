@@ -1,18 +1,20 @@
-FROM ruby:2.6.3
+FROM ruby:2.5.4
 MAINTAINER Ramon Tayag <ramon.tayag@gmail.com>
-
-RUN apt-get update -qq && \
-  apt-get upgrade -y && \
-  apt-get install -y apt-transport-https ca-certificates
-
-RUN apt-get update && apt-get install -y build-essential libpq-dev postgresql-client
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-RUN apt-get update && apt-get install -y nodejs
-RUN apt-get update && apt-get install yarn
+RUN apt-get update -qq && \
+  apt-get upgrade -y && \
+  apt-get install -y \
+  apt-transport-https \
+  ca-certificates \
+  build-essential \
+  libpq-dev  \
+  postgresql-client \
+  nodejs \
+  yarn
 
 # Workaround for lack of new OpenSSL support https://github.com/oleganza/btcruby/issues/29
 RUN ln -nfs /usr/lib/x86_64-linux-gnu/libssl.so.1.0.2 /usr/lib/x86_64-linux-gnu/libssl.so
