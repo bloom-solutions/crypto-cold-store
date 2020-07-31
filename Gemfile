@@ -18,7 +18,7 @@ gem "dry-types" # required by reform coercion
 gem "dry-validation"
 gem "ethereum.rb", "~> 2.2"
 gem "light-service", "0.10.2"
-gem "lograge", "0.10.0"
+gem "lograge", "0.11.2"
 gem "message_bus", "~> 2.1"
 gem "pg", "~> 1.2"
 gem "sidekiq", "~> 5.1"
