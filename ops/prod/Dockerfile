@@ -37,7 +37,8 @@ RUN mkdir $BUNDLE_PATH
 ADD Gemfile $APP/Gemfile
 ADD Gemfile.lock $APP/Gemfile.lock
 
-RUN gem install bundler && \
+RUN gem update --system 3.1.3 && gem update --system && \
+  gem install bundler && \
   bundle install --jobs 20 --retry 5 --without development test
 
 ADD . $APP
