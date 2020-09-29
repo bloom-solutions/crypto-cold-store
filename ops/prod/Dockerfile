@@ -38,7 +38,7 @@ ADD Gemfile $APP/Gemfile
 ADD Gemfile.lock $APP/Gemfile.lock
 
 RUN gem update --system 3.1.3 && gem update --system && \
-  gem install bundler && \
+  gem install bundler:2.1.4 && \
   bundle install --jobs 20 --retry 5 --without development test
 
 ADD . $APP
