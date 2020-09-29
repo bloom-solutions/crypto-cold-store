@@ -16,7 +16,7 @@ require 'rails_helper'
 
     it "expires the lock automatically" do
       expect(described_class.sidekiq_options["lock_expiration"]).
-        to eq 1.minutes
+        to eq 2.minutes
     end
 
     # Not all coins in Block::COINS are synced, yet
