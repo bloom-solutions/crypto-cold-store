@@ -1,7 +1,7 @@
 module Eth
   class SaveTxInfo
 
-    ETHER_IN_WEI = BigDecimal.new("1_000_000_000_000_000_000.0")
+    ETHER_IN_WEI = BigDecimal("1_000_000_000_000_000_000.0")
     extend LightService::Action
     expects :address, :remote_tx
     promises :tx
