@@ -1,4 +1,4 @@
-FROM ruby:2.5.4
+FROM ruby:2.7.0
 MAINTAINER Ramon Tayag <ramon.tayag@gmail.com>
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
