@@ -3,7 +3,7 @@ class SyncUnconfirmedTxsJob < ApplicationJob
   sidekiq_options(
     unique: :until_executed,
     on_conflict: :log,
-    lock_expiration: 1.minutes,
+    lock_expiration: 2.minutes,
   )
 
   def perform(coin)
