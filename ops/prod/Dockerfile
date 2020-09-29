@@ -16,9 +16,6 @@ RUN apt-get update -qq && \
   nodejs \
   yarn
 
-# Workaround for lack of new OpenSSL support https://github.com/oleganza/btcruby/issues/29
-RUN ln -nfs /usr/lib/x86_64-linux-gnu/libssl.so.1.0.2 /usr/lib/x86_64-linux-gnu/libssl.so
-
 # Keep image size small:
 RUN apt-get clean && \
   rm -rf /var/lib/apt/lists/*
