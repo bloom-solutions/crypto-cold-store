@@ -8,7 +8,7 @@ end
 ruby "2.7.6"
 
 gem "addressable", "~> 2.8"
-gem "bip44", "0.2.14"
+gem "bip44", "0.2.18"
 gem "bitcoiner", "0.1.4"
 gem "btcruby", github: "bloom-solutions/btcruby", branch: "bloom_changes"
 gem "bugsnag", "~> 6.9"
@@ -34,6 +34,10 @@ gem 'rails', '~> 5.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+
+# Not needed directly, but needed by bip44. Install this ref because
+# released version 0.11.1 does not add bech32 as a dependency.
+gem "money-tree", github: "GemHQ/money-tree", ref: "36fc4bece3e8ad39befe446af0a9d58dd3ebfa4b"
 
 group :development, :test do
   gem "dotenv-rails"

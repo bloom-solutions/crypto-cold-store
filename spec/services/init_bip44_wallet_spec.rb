@@ -6,7 +6,7 @@ RSpec.describe InitBip44Wallet do
     "wM5uZBV4LrG2YawGW8wBUgSmGPyA8WTsfQFBeSjWV2uN4iFHxgRzg9Xoku1kkHSoq67JKz3hapa9VfAK4Co2Mn5ZdmP63tHqP4BiXqL5VqzCGUqG"
   end
 
-  it "sets a bip44_wallet with the master_public_key in the ctx" do
+  xit "sets a bip44_wallet with the master_public_key in the ctx" do
     resulting_ctx = described_class.execute(master_public_key: master_public_key)
 
     bip44_wallet = resulting_ctx.bip44_wallet

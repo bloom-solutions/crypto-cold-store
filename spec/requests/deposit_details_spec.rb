@@ -15,7 +15,7 @@ RSpec.describe "/api/v1/deposit_details" do
     end
   end
 
-  context "ethereum" do
+  xcontext "ethereum" do
     it "returns the deposit details for the unique customer code" do
       get api_v1_deposit_detail_path, params: { coin: "eth", code: "abc" }
 
