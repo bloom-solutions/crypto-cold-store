@@ -50,8 +50,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
     bindex (0.5.0)
     bip44 (0.2.14)
@@ -219,7 +219,7 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-    public_suffix (3.0.3)
+    public_suffix (4.0.7)
     puma (4.3.12)
       nio4r (~> 2.0)
     raabro (1.1.6)
@@ -398,7 +398,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  addressable (~> 2.5)
+  addressable (~> 2.8)
   bip44 (= 0.2.14)
   bitcoiner (= 0.1.4)
   btcruby!
