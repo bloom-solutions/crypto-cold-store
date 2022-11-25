@@ -7,7 +7,7 @@ end
 
 ruby "2.7.6"
 
-gem "addressable", "~> 2.5"
+gem "addressable", "~> 2.8"
 gem "bip44", "0.2.14"
 gem "bitcoiner", "0.1.4"
 gem "btcruby", github: "bloom-solutions/btcruby", branch: "bloom_changes"
