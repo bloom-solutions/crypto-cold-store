@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bloom-solutions/btcruby.git
-  revision: eb70f7b9c19fe53b90e5c0c6c801abda750912f4
+  revision: 8dde44ef63f4c0c89cb62cbadc4cba782e4bae59
   branch: bloom_changes
   specs:
     btcruby (1.8)
@@ -159,7 +159,7 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
-    ffi (1.13.1)
+    ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -201,7 +201,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.0.1)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.6.1)
     minitest (5.14.1)
     moneta (1.0.0)
     money-tree (0.9.0)
@@ -209,8 +209,9 @@ GEM
     multi_json (1.13.1)
     mustermann (1.0.3)
     nio4r (2.3.1)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     pg (1.2.3)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -222,6 +223,7 @@ GEM
     puma (4.3.12)
       nio4r (~> 2.0)
     raabro (1.1.6)
+    racc (1.6.0)
     rack (2.2.3)
     rack-protection (2.0.4)
       rack
@@ -307,9 +309,6 @@ GEM
       rubyzip (~> 1.2, >= 1.2.2)
     shoulda-matchers (4.0.0.rc1)
       activesupport (>= 4.2.0)
-      connection_pool (~> 2.2, >= 2.2.2)
-      rack-protection (>= 1.5.0)
-      redis (>= 3.3.5, < 5)
     sidekiq (5.2.3)
       connection_pool (~> 2.2, >= 2.2.2)
       rack-protection (>= 1.5.0)
@@ -445,5 +444,8 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webmock
 
+RUBY VERSION
+   ruby 2.7.6p219
+
 BUNDLED WITH
-   1.17.1
+   2.3.26
