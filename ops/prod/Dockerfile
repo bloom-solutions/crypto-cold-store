@@ -42,7 +42,9 @@ RUN mkdir $BUNDLE_PATH
 ADD Gemfile $APP/Gemfile
 ADD Gemfile.lock $APP/Gemfile.lock
 
-RUN gem install bundler && \
+RUN gem install --default bundler && \
+  gem update --system  && \
+  bundle update --bundler && \
   bundle install --jobs 20 --retry 5 --without development test
 
 ADD . $APP
