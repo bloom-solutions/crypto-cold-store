@@ -11,13 +11,13 @@ RUN apt-get update -qq && \
   apt-transport-https \
   ca-certificates \
   build-essential \
-  libssl1.0 \
   libpq-dev  \
   postgresql-client \
   nodejs \
   yarn
 
 # Workaround for lack of new OpenSSL support https://github.com/oleganza/btcruby/issues/29
+RUN ls -la /usr/lib/x86_64-linux-gnu/
 RUN ln -nfs /usr/lib/x86_64-linux-gnu/libssl.so.1.0.2 /usr/lib/x86_64-linux-gnu/libssl.so
 
 # Keep image size small:
