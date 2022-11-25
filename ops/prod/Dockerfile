@@ -11,6 +11,7 @@ RUN apt-get update -qq && \
   apt-transport-https \
   ca-certificates \
   build-essential \
+  libssl1.1 \
   libpq-dev  \
   postgresql-client \
   nodejs \
