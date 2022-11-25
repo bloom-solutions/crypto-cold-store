@@ -28,6 +28,10 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Setup db
+      run: |
+        cp config/database.yml{.sample,}
+        bundle exec rails db:test:prepare
     - name: Run tests
       run: |
         bundle exec rspec spec
