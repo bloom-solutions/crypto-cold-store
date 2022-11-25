@@ -58,6 +58,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
 
+    - name: yarn install
+      working-directory: .
+      run: yarn --prefer-offline
+
     - name: Setup db
       run: |
         cp config/database.yml{.sample,}
