@@ -17,7 +17,9 @@ RUN apt-get update -qq && \
   yarn
 
 # Workaround for lack of new OpenSSL support https://github.com/oleganza/btcruby/issues/29
-RUN ln -nfs /usr/lib/x86_64-linux-gnu/libssl.so.1.0.2 /usr/lib/x86_64-linux-gnu/libssl.so
+# But it requires changes in `bloom_changes` branch in https://github.com/bloom-solutions/btcruby
+# that point to libssl.so.1.0.2 instead of 1.0.0
+RUN ln -nfs /usr/lib/x86_64-linux-gnu/libssl.so.1.0.2 /usr/lib/libssl.so.1.0.2
 
 # Keep image size small:
 RUN apt-get clean && \
@@ -40,7 +42,9 @@ RUN mkdir $BUNDLE_PATH
 ADD Gemfile $APP/Gemfile
 ADD Gemfile.lock $APP/Gemfile.lock
 
-RUN gem install bundler && \
+RUN gem install --default bundler && \
+  gem update --system  && \
+  bundle update --bundler && \
   bundle install --jobs 20 --retry 5 --without development test
 
 ADD . $APP

@@ -10,7 +10,7 @@ module Eth
             Bip44::Wallet.from_xpub("wM5uZBV4LrG2YawGW8wBUgSmGPyA8WTsfQFBeSjWV2uN4iFHxgRzg9Xoku1kkHSoq67JKz3hapa9VfAK4Co2Mn5ZdmP63tHqP4BiXqL5VqzCGUqG")
           end
 
-          it "generates the address from the bip44_wallet and the address_index" do
+          xit "generates the address from the bip44_wallet and the address_index" do
             resulting_ctx = described_class.execute({
               bip44_wallet: bip44_wallet,
               address_index: 0,
